@@ -1,0 +1,101 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--gr-gray-900);
+  font-family: var(--gr-font-jp);
+  font-weight: 400;
+  line-height: var(--gr-lh-body);
+  letter-spacing: var(--gr-ls-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: var(--gr-lh-heading);
+  letter-spacing: var(--gr-ls-heading);
+  color: var(--gr-blue-800);
+}
+
+button {
+  font-family: inherit;
+}
+
+.gr-container {
+  max-width: var(--gr-container);
+  margin: 0 auto;
+  padding: 0 var(--gr-sp-4);
+}
+
+.gr-page {
+  min-height: 100vh;
+}
+
+/* セクション共通レイアウト（各セクションコンポーネントから利用） */
+.gr-section {
+  padding: var(--gr-sp-8) 0;
+}
+
+.gr-section--alt {
+  background: var(--gr-gray-50);
+}
+
+.gr-en {
+  font-family: var(--gr-font-en);
+}
+
+.gr-serif {
+  font-family: var(--gr-font-serif);
+}
+
+/* 数字強調（実績値・年号など） */
+.gr-number {
+  font-family: var(--gr-font-en);
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .gr-container {
+    padding: 0 20px;
+  }
+}

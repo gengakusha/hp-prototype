@@ -1,0 +1,26 @@
+.gr-floating-cta {
+  position: fixed;
+  right: var(--gr-sp-4);
+  bottom: var(--gr-sp-4);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gr-sp-2);
+}
+
+.gr-floating-cta .gr-site-cta {
+  box-shadow: var(--gr-shadow-m);
+}
+
+@media (max-width: 600px) {
+  .gr-floating-cta {
+    right: var(--gr-sp-3);
+    bottom: var(--gr-sp-3);
+  }
+  .gr-floating-cta .gr-site-cta--large {
+    height: 52px;
+    padding: 0 24px;
+    padding-right: 44px;
+    font-size: 13px;
+  }
+}

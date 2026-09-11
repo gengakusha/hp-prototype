@@ -1,0 +1,53 @@
+.gr-site-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* トーン: 実サイト計測値 */
+.gr-site-cta--blue {
+  background-color: #00a0e9;
+  color: #ffffff;
+}
+
+.gr-site-cta--dark {
+  background-color: #363c40;
+  color: #ffffff;
+}
+
+/* サイズ: header（グローバルヘッダーの2ボタン） */
+.gr-site-cta--header {
+  width: 160px;
+  height: 56px;
+  font-size: 16px;
+}
+
+/* サイズ: large（校舎検索・採用・フローティングCTA） */
+.gr-site-cta--large {
+  height: 64px;
+  padding: 0 32px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gr-site-cta--arrow {
+  position: relative;
+  padding-right: 52px;
+  background-image: url("/button_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 22px) 50%;
+  background-size: 20px 20px;
+}
+
+@media (max-width: 600px) {
+  .gr-site-cta--header {
+    width: auto;
+    height: 44px;
+    padding: 0 18px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,123 @@
+.gr-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid var(--gr-gray-100);
+}
+
+.gr-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--gr-sp-5);
+  min-height: 100px;
+  padding-top: var(--gr-sp-2);
+  padding-bottom: var(--gr-sp-2);
+}
+
+.gr-header__logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.gr-header__logo img {
+  height: 64px;
+  width: auto;
+}
+
+.gr-header__nav {
+  flex: 1;
+}
+
+.gr-header__nav > ul {
+  display: flex;
+  gap: var(--gr-sp-5);
+}
+
+.gr-header__nav > ul > li {
+  position: relative;
+}
+
+.gr-header__nav > ul > li > a {
+  display: block;
+  padding: var(--gr-sp-2) 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2d3235;
+  white-space: nowrap;
+}
+
+.gr-header__nav > ul > li > a:hover {
+  color: var(--gr-blue-500);
+}
+
+.gr-header__nav-item--has-children > a::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  opacity: 0.6;
+}
+
+.gr-header__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid var(--gr-gray-200);
+  border-radius: var(--gr-radius-m);
+  box-shadow: var(--gr-shadow-m);
+  padding: var(--gr-sp-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+}
+
+.gr-header__nav-item--has-children:hover .gr-header__dropdown,
+.gr-header__nav-item--has-children:focus-within .gr-header__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.gr-header__dropdown li a {
+  display: block;
+  padding: var(--gr-sp-2) var(--gr-sp-3);
+  font-size: 13px;
+  font-weight: 400;
+  color: #2d3235;
+  border-radius: var(--gr-radius-s);
+  white-space: nowrap;
+}
+
+.gr-header__dropdown li a:hover {
+  background: var(--gr-blue-50);
+  color: var(--gr-blue-700);
+}
+
+.gr-header__actions {
+  display: flex;
+  gap: var(--gr-sp-2);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1080px) {
+  .gr-header__nav {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .gr-header__logo img {
+    height: 44px;
+  }
+  .gr-header__actions .gr-site-cta--dark {
+    display: none;
+  }
+}

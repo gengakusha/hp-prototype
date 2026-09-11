@@ -1,0 +1,56 @@
+.gr-genronkai {
+  background: linear-gradient(70deg, #93c2d8 0%, #dcecf2 100%);
+  padding: var(--gr-sp-8) 0 var(--gr-sp-6);
+}
+
+.gr-genronkai__inner {
+  text-align: center;
+}
+
+.gr-genronkai__wordmark {
+  color: #ffffff;
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 700;
+  margin: 0 0 var(--gr-sp-6);
+  letter-spacing: 0.02em;
+}
+
+.gr-genronkai__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--gr-sp-3);
+  margin-bottom: var(--gr-sp-5);
+}
+
+.gr-genronkai__social-link img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  transition: opacity 0.15s ease;
+}
+
+.gr-genronkai__social-link:hover img {
+  opacity: 0.8;
+}
+
+.gr-genronkai__legal {
+  display: flex;
+  justify-content: center;
+  gap: var(--gr-sp-5);
+  margin-bottom: var(--gr-sp-6);
+}
+
+.gr-genronkai__legal a {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.gr-genronkai__legal a:hover {
+  text-decoration: underline;
+}
+
+.gr-genronkai__copyright {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  margin: 0;
+}

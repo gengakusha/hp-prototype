@@ -1,0 +1,37 @@
+.gr-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 2px;
+  transform: skewX(var(--gr-skew));
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid transparent;
+}
+
+.gr-badge__label {
+  display: inline-block;
+  transform: skewX(12deg); /* 文字は水平に戻す */
+}
+
+.gr-badge--campaign {
+  background: var(--gr-orange-500);
+  color: var(--gr-gray-900);
+}
+
+.gr-badge--blue {
+  background: var(--gr-blue-500);
+  color: #ffffff;
+}
+
+.gr-badge--navy {
+  background: var(--gr-blue-800);
+  color: #ffffff;
+}
+
+.gr-badge--outline {
+  background: #ffffff;
+  border-color: var(--gr-blue-700);
+  color: var(--gr-blue-700);
+}

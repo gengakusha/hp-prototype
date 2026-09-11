@@ -1,0 +1,30 @@
+.gr-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--gr-sp-3);
+}
+
+.gr-subject-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gr-sp-2);
+  padding: var(--gr-sp-4);
+}
+
+.gr-subject-card__name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--gr-gray-900);
+}
+
+@media (max-width: 960px) {
+  .gr-subject-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gr-subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

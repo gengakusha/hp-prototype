@@ -1,0 +1,63 @@
+.gr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gr-sp-2);
+  height: 48px;
+  padding: 0 var(--gr-sp-4);
+  border-radius: var(--gr-radius-s);
+  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: var(--gr-ls-body);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+@media (max-width: 600px) {
+  .gr-btn {
+    height: 52px;
+  }
+}
+
+/* CTA: コンバージョン直結（無料受験相談・資料請求など） */
+.gr-btn--cta {
+  background: var(--gr-orange-500);
+  color: var(--gr-gray-900);
+}
+.gr-btn--cta:hover {
+  background: var(--gr-orange-600);
+}
+
+/* Primary: コンバージョン以外の主要遷移（校舎検索・一覧など） */
+.gr-btn--primary {
+  background: var(--gr-blue-700);
+  color: #ffffff;
+}
+.gr-btn--primary:hover {
+  background: var(--gr-blue-800);
+}
+
+/* Secondary: 並列の選択肢 */
+.gr-btn--secondary {
+  background: #ffffff;
+  border-color: var(--gr-blue-700);
+  color: var(--gr-blue-700);
+}
+.gr-btn--secondary:hover {
+  background: var(--gr-blue-50);
+}
+
+/* Text: 補助導線 */
+.gr-btn--text {
+  height: auto;
+  padding: 0;
+  background: transparent;
+  color: var(--gr-blue-700);
+  text-decoration: underline;
+  font-weight: 500;
+}
+.gr-btn--text:hover {
+  color: var(--gr-blue-800);
+}

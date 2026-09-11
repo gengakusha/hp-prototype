@@ -1,0 +1,30 @@
+.gr-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--gr-gray-200);
+  border-radius: var(--gr-radius-m);
+  box-shadow: var(--gr-shadow-s);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+  overflow: hidden;
+}
+
+.gr-card:hover {
+  box-shadow: var(--gr-shadow-m);
+  transform: translateY(-2px);
+}
+
+.gr-card--accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--gr-blue-500) 0%,
+    var(--gr-blue-500) 82%,
+    var(--gr-blue-300) 82%,
+    var(--gr-blue-300) 100%
+  );
+}

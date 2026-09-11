@@ -1,0 +1,75 @@
+/*
+  現論会 デザイントークン
+  出典: hp/concept/genronkai-brand-styleguide-v1.pdf (Ver.1.1 — 2026.07) セクション11
+  値はスタイルガイドの定義をそのまま転記。改定時はスタイルガイドと同時更新すること。
+*/
+:root {
+  /* ===== Brand Colors（公式） ===== */
+  --gr-blue-500: #00a0e9; /* メインカラー（固定） */
+  --gr-blue-300: #85d0f4; /* ライトブルー */
+  --gr-blue-800: #00486b; /* ネイビー・タグライン */
+  --gr-orange-500: #f2974f; /* アクセント */
+
+  /* ===== Blue Scale（拡張） ===== */
+  --gr-blue-50: #eaf7fd;
+  --gr-blue-100: #d4effb;
+  --gr-blue-200: #ade1f8;
+  --gr-blue-400: #3db9ee;
+  --gr-blue-600: #008bcb;
+  --gr-blue-700: #0074a8; /* リンク・AA適合 */
+  --gr-blue-900: #003049;
+
+  /* ===== Orange ===== */
+  --gr-orange-100: #fce8d8;
+  --gr-orange-600: #de8440; /* CTAホバー */
+  --gr-orange-700: #b05e1e;
+
+  /* ===== Neutrals ===== */
+  --gr-gray-50: #f5f8fa;
+  --gr-gray-100: #ebf0f3;
+  --gr-gray-200: #d8e1e6;
+  --gr-gray-300: #b9c6cd;
+  --gr-gray-400: #90a0a9;
+  --gr-gray-500: #6d7e88;
+  --gr-gray-600: #556570;
+  --gr-gray-700: #3e4e58;
+  --gr-gray-800: #2a3841;
+  --gr-gray-900: #17252e; /* 本文 */
+
+  /* ===== Semantic ===== */
+  --gr-success: #187a46;
+  --gr-success-bg: #e6f4ec;
+  --gr-warning: #a66300;
+  --gr-warning-bg: #fcf3e3;
+  --gr-error: #c63c32;
+  --gr-error-bg: #fbecea;
+  --gr-info: #0074a8;
+  --gr-info-bg: #eaf7fd;
+
+  /* ===== Typography ===== */
+  --gr-font-jp: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --gr-font-en: "Poppins", "Noto Sans JP", sans-serif;
+  --gr-font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif; /* メッセージ専用 */
+  --gr-lh-body: 1.9;
+  --gr-lh-heading: 1.4;
+  --gr-ls-body: 0.03em;
+  --gr-ls-heading: 0.04em;
+
+  /* ===== Spacing（8px基準） ===== */
+  --gr-sp-1: 4px;
+  --gr-sp-2: 8px;
+  --gr-sp-3: 16px;
+  --gr-sp-4: 24px;
+  --gr-sp-5: 32px;
+  --gr-sp-6: 48px;
+  --gr-sp-7: 64px;
+  --gr-sp-8: 96px;
+
+  /* ===== Radius / Shadow / Motif ===== */
+  --gr-radius-s: 6px;
+  --gr-radius-m: 12px;
+  --gr-shadow-s: 0 2px 8px rgba(0, 72, 107, 0.08);
+  --gr-shadow-m: 0 8px 24px rgba(0, 72, 107, 0.12);
+  --gr-skew: -12deg;
+  --gr-container: 1120px;
+}

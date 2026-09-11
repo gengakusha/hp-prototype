@@ -1,0 +1,53 @@
+.gr-level-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gr-sp-4);
+}
+
+.gr-level-card {
+  padding: var(--gr-sp-4);
+}
+
+.gr-level-card__level {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--gr-blue-800);
+  margin: 0 0 var(--gr-sp-1);
+}
+
+.gr-level-card__desc {
+  font-size: 13px;
+  color: var(--gr-gray-600);
+  margin: 0 0 var(--gr-sp-3);
+  min-height: 40px;
+}
+
+.gr-level-card__books {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gr-sp-2);
+  border-top: 1px solid var(--gr-gray-100);
+  padding-top: var(--gr-sp-3);
+}
+
+.gr-level-card__books a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gr-blue-700);
+}
+
+.gr-level-card__books a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .gr-level-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gr-level-grid {
+    grid-template-columns: 1fr;
+  }
+}

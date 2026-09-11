@@ -1,0 +1,43 @@
+.gr-season-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gr-sp-4);
+}
+
+.gr-season-card {
+  padding: var(--gr-sp-4);
+}
+
+.gr-season-card__season {
+  font-weight: 700;
+  color: var(--gr-blue-800);
+  margin-bottom: 4px;
+}
+
+.gr-season-card__focus {
+  font-size: 13px;
+  color: var(--gr-gray-600);
+  margin-bottom: var(--gr-sp-3);
+}
+
+.gr-season-card__books {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gr-sp-1);
+  font-size: 13px;
+  color: var(--gr-gray-800);
+  border-top: 1px solid var(--gr-gray-100);
+  padding-top: var(--gr-sp-3);
+}
+
+@media (max-width: 960px) {
+  .gr-season-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gr-season-grid {
+    grid-template-columns: 1fr;
+  }
+}
