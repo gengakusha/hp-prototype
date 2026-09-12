@@ -1,32 +1,88 @@
-# React + TypeScript + Vite
+# 現論会 HP 開発リポジトリ（索引ページ プロトタイプ）
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> `genronkai-journal` の索引ページを置き換えるための React/Vite プロトタイプです。まだ本番のGitHubリポジトリには push されていません。まずはこのディレクトリを clone 先へコピーし、**Pull（最新を取る）** から始めてください。
 
-Currently, two official plugins are available:
+索引ページを中心としたコーポレート/LPサイトのフロントエンド実装です。デザイントークン（`src/styles/tokens.css`）は現論会ブランドスタイルガイドに準拠しています。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| 項目 | 内容 |
+|---|---|
+| Organization | [gengakusha](https://github.com/gengakusha) |
+| リポジトリ名 | `genronkai-hp` （ 正式名が決まり次第更新） |
+| 正本 | このリポジトリの `main` ブランチ |
+| 運用 | Pull Request 経由で更新（[共通手順](https://github.com/gengakusha/handbook/blob/main/github-howto.md)） |
+| 技術構成 | Vite + React + TypeScript |
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 正本の使い方
 
-## Expanding the Oxlint configuration
+| 役割 | いつ | やること |
+|---|---|---|
+| **Org メンバー** | コンポーネント・スタイルを直す | 枝 → PR（Reviewer は **本多**） |
+| **通す人** | 本多 | Approve → Merge |
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## 最新を取りに来る（使う人）
+
+```bash
+git clone git@github.com:gengakusha/genronkai-hp.git
+# または HTTPS: https://github.com/gengakusha/genronkai-hp.git
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+すでに clone 済みなら:
+
+```bash
+git pull origin main
+```
+
+### セットアップ
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+```
+
+### 動作確認コマンド
+
+```bash
+npm run lint                          # oxlint
+npx tsc --noEmit -p tsconfig.app.json # 型チェック
+npm run build                         # 本番ビルド
+```
+
+---
+
+## 直したいとき（提案する人）
+
+1. 最新を取る: `git pull origin main`
+2. ブランチを切る: `git checkout -b fix/内容の要約`
+3. 編集して commit（`npm run lint` / `npx tsc --noEmit` が通ることを確認）
+4. push して **Pull Request** を出す（Reviewer: **本多**）
+5. Slack には **PR の URL** を貼る（「直した」ではなく「PR 出したので見てほしい」）
+
+**やってはいけないこと**
+
+- `main` へ直接 push しない
+- 自分の PR を自分でマージしない
+- `public/` 配下の実サイトアセット（ロゴ等）を無断で改変・別ブランド用途に流用しない
+
+---
+
+## 通す人
+
+- PR の **Reviewer** は必ず **本多海聖**
+- 確認するのは、実装方針・置き場が適切か、ビルド/型チェック/lintが通っているか
+- 自分の PR は自分で Approve / Merge しない
+
+---
+
+## 権限
+
+Private リポでは branch protection が使えないため、**権限で守る**。
+
+| 役割 | 目安 |
+|---|---|
+| 通す人 | Maintain 以上（マージ可） |
+| 提案する人 | Write（ブランチ + PR まで） |
+| 使う人 | Read |
