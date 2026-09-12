@@ -58,7 +58,7 @@ npm run build                         # 本番ビルド
 1. 最新を取る: `git pull origin main`
 2. ブランチを切る: `git checkout -b fix/内容の要約`
 3. 編集して commit（`npm run lint` / `npx tsc --noEmit` が通ることを確認）
-4. push して **Pull Request** を出す（Reviewer: **本多**）
+4. developブランチへpush して **Pull Request** を出す（mainは絶対に触らないこと）
 5. Slack には **PR の URL** を貼る（「直した」ではなく「PR 出したので見てほしい」）
 
 **やってはいけないこと**
