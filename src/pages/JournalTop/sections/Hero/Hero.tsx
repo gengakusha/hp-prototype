@@ -1,12 +1,13 @@
-import { Button } from "../../ui/Button/Button";
+import { Button } from "../../../../components/ui/Button/Button";
 import "./Hero.css";
 
 const quickLinks = [
+  // { label: "ジャーナルTOP", href: "/" }, // 自コンテンツは非表示
   { label: "大学別", href: "#university" },
   { label: "科目別", href: "#subject" },
   { label: "参考書別", href: "#books" },
   { label: "共通テスト", href: "#common-test" },
-  { label: "季節ごと（書店用）", href: "#seasonal" },
+  { label: "書店ポップ", href: "/pop" },   
 ];
 
 export function Hero() {

@@ -1,0 +1,77 @@
+/* 実サイトの .g-press-card を参考にした値（スマホ → 1200px 以上で切り替え） */
+.gr-article-card__link {
+  display: block;
+  transition: opacity 0.3s;
+}
+.gr-article-card__link:hover {
+  opacity: 0.8;
+}
+
+.gr-article-card__img {
+  margin-bottom: 12px;
+}
+.gr-article-card__img img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gr-article-card__meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0 16px;
+  margin-bottom: 8px;
+}
+
+.gr-article-card__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.gr-article-card__categories li {
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: #93c2d8; /* 実サイトのカテゴリラベルと同じ淡いブルー */
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.gr-article-card__date {
+  color: var(--gr-gray-600);
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* 見出し(h3)の共通サイズより小さい。2列のカードに収めるための例外 */
+.gr-article-card__title {
+  color: var(--gr-gray-800);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@media (min-width: 1200px) {
+  .gr-article-card__img {
+    margin-bottom: 20px;
+  }
+  .gr-article-card__img img {
+    border-radius: 16px;
+  }
+  .gr-article-card__meta {
+    margin-bottom: 20px;
+  }
+  .gr-article-card__categories li {
+    padding: 8px;
+    font-size: 12px;
+  }
+  .gr-article-card__date {
+    font-size: 14px;
+  }
+  .gr-article-card__title {
+    font-size: 16px;
+  }
+}

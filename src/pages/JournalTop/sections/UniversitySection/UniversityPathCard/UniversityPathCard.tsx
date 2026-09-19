@@ -1,6 +1,6 @@
-import { Card } from "../../../ui/Card/Card";
-import { Button } from "../../../ui/Button/Button";
-import type { UniversityPath } from "../../../../data/journalIndex";
+import { Card } from "../../../../../components/ui/Card/Card";
+import { Button } from "../../../../../components/ui/Button/Button";
+import type { UniversityPath } from "../../../../../data/journalIndex";
 import "./UniversityPathCard.css";
 
 export function UniversityPathCard({ university }: { university: UniversityPath }) {

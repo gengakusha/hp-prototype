@@ -1,0 +1,34 @@
+.gr-pageidx {
+  padding: var(--gr-sp-3) 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--gr-gray-900);
+}
+
+.gr-pageidx__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 区切り（／）は CSS で付ける。読み上げには含めない */
+.gr-pageidx__item + .gr-pageidx__item::before {
+  content: "／";
+}
+
+.gr-pageidx__link {
+  color: var(--gr-blue-600);
+  text-decoration: none;
+}
+.gr-pageidx__link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .gr-pageidx {
+    font-size: 16px;
+  }
+}

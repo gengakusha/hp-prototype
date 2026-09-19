@@ -1,0 +1,13 @@
+/* 記事カードの一覧: スマホは2列、1200px 以上は3列（実サイトの .g-press-list と同じ間隔） */
+.gr-timeline__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 15px;
+}
+
+@media (min-width: 1200px) {
+  .gr-timeline__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 80px 45px;
+  }
+}
