@@ -22,19 +22,21 @@
 }
 
 /* CTA: コンバージョン直結（無料受験相談・資料請求など） */
-.gr-btn--cta {
+/* .gr-btn--cta {
   background: var(--gr-orange-500);
   color: var(--gr-gray-900);
 }
 .gr-btn--cta:hover {
   background: var(--gr-orange-600);
-}
+} */
 
 /* Primary: コンバージョン以外の主要遷移（校舎検索・一覧など） */
+.gr-btn--cta,
 .gr-btn--primary {
   background: var(--gr-blue-700);
   color: #ffffff;
 }
+.gr-btn--cta:hover,
 .gr-btn--primary:hover {
   background: var(--gr-blue-800);
 }

@@ -1,6 +1,6 @@
-import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
+import { SectionHeading } from "../../../../components/ui/SectionHeading/SectionHeading";
 import { UniversityPathCard } from "./UniversityPathCard/UniversityPathCard";
-import { featuredUniversities, universityGroups } from "../../../data/journalIndex";
+import { featuredUniversities, universityGroups } from "../../../../data/journalIndex";
 import "./UniversitySection.css";
 
 export function UniversitySection() {

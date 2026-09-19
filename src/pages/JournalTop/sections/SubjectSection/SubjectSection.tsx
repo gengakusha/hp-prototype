@@ -1,7 +1,7 @@
-import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
-import { Card } from "../../ui/Card/Card";
-import { Badge } from "../../ui/Badge/Badge";
-import { subjects } from "../../../data/journalIndex";
+import { SectionHeading } from "../../../../components/ui/SectionHeading/SectionHeading";
+import { Card } from "../../../../components/ui/Card/Card";
+import { Badge } from "../../../../components/ui/Badge/Badge";
+import { subjects } from "../../../../data/journalIndex";
 import "./SubjectSection.css";
 
 export function SubjectSection() {
