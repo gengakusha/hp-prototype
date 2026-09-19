@@ -1,7 +1,6 @@
 /**
- * ヘッダー・フッター共通ナビゲーションのデータ
- * 出典: https://genronkai.com/genronkai-journal/ を実機計測して再現（2026.09時点）
- * URL・文言はPlaywrightで実ページのDOM/computed styleを直接取得して確認済み。
+ ヘッダー・フッター共通ナビのデータ
+ https://genronkai.com/genronkai-journal/ より引用
  */
 
 export type NavItem = {

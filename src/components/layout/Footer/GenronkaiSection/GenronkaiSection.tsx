@@ -1,4 +1,4 @@
-import { socialLinks, footerLegal } from "../../data/siteNav";
+import { socialLinks, footerLegal } from "../../../../data/siteNav";
 import "./GenronkaiSection.css";
 
 export function GenronkaiSection() {

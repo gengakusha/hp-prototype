@@ -1,5 +1,5 @@
-import { SiteCtaButton } from "../SiteCtaButton";
-import { recruitmentLinks } from "../../data/siteNav";
+import { SiteCtaButton } from "../../../ui/SiteCtaButton/SiteCtaButton";
+import { recruitmentLinks } from "../../../../data/siteNav";
 import "./RecruitmentSection.css";
 
 export function RecruitmentSection() {

@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import { Button } from "../../ui/Button/Button";
 import "./Hero.css";
 
 const quickLinks = [

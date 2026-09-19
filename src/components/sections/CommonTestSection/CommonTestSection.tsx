@@ -1,8 +1,8 @@
-import { SectionHeading } from "../SectionHeading";
-import { Card } from "../Card";
-import { Badge } from "../Badge";
-import { Button } from "../Button";
-import { subjects } from "../../data/journalIndex";
+import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
+import { Card } from "../../ui/Card/Card";
+import { Badge } from "../../ui/Badge/Badge";
+import { Button } from "../../ui/Button/Button";
+import { subjects } from "../../../data/journalIndex";
 import "./CommonTestSection.css";
 
 export function CommonTestSection() {
