@@ -1,7 +1,7 @@
-import { JournalIndexPage } from "./pages/JournalIndexPage";
+import { JournalTop } from "./pages/JournalTop";
 
 function App() {
-  return <JournalIndexPage />;
+  return <JournalTop />;
 }
 
 export default App;

@@ -1,6 +1,6 @@
-import { SectionHeading } from "../SectionHeading";
-import { Card } from "../Card";
-import { seasonalPicks } from "../../data/journalIndex";
+import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
+import { Card } from "../../ui/Card/Card";
+import { seasonalPicks } from "../../../data/journalIndex";
 import "./SeasonalSection.css";
 
 export function SeasonalSection() {

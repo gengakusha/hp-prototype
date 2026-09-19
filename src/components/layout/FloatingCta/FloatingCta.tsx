@@ -1,5 +1,5 @@
-import { SiteCtaButton } from "./SiteCtaButton";
-import { floatingCta } from "../data/siteNav";
+import { SiteCtaButton } from "../../ui/SiteCtaButton/SiteCtaButton";
+import { floatingCta } from "../../../data/siteNav";
 import "./FloatingCta.css";
 
 /**

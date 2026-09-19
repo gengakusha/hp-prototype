@@ -1,5 +1,5 @@
-import { SiteCtaButton } from "./SiteCtaButton";
-import { headerNav, headerActions } from "../data/siteNav";
+import { SiteCtaButton } from "../../ui/SiteCtaButton/SiteCtaButton";
+import { headerNav, headerActions } from "../../../data/siteNav";
 import "./Header.css";
 
 export function Header() {

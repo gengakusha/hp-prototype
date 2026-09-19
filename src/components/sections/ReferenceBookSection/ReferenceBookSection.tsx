@@ -1,7 +1,7 @@
-import { SectionHeading } from "../SectionHeading";
-import { Card } from "../Card";
-import { Button } from "../Button";
-import { referenceBookLevels } from "../../data/journalIndex";
+import { SectionHeading } from "../../ui/SectionHeading/SectionHeading";
+import { Card } from "../../ui/Card/Card";
+import { Button } from "../../ui/Button/Button";
+import { referenceBookLevels } from "../../../data/journalIndex";
 import "./ReferenceBookSection.css";
 
 export function ReferenceBookSection() {
