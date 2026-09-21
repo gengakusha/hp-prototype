@@ -1,61 +1,164 @@
-.gr-hero {
-  background: linear-gradient(180deg, var(--gr-blue-50) 0%, #ffffff 100%);
-  padding: var(--gr-sp-8) 0 var(--gr-sp-7);
-  border-bottom: 1px solid var(--gr-gray-100);
+/* 実サイトの .g-mv を参考にした構成。
+   ヒーロー全体（.gr-pop-hero__stage）を「元画像と同じ縦横比の箱」にして、パーツを % で配置している。
+   文字サイズ・余白などの cqw は「この箱の幅の 1%」（container query units）。
+   スマホ用（750×874 の比率）が基本で、1200px 以上で PC 用（1440×948 の比率）に切り替える。 */
+.gr-pop-hero {
+  container-type: inline-size;
+  margin-top: 16px;
+  margin-bottom: 40px;
 }
 
-.gr-hero__inner {
-  max-width: 760px;
+.gr-pop-hero__stage {
+  position: relative;
+  aspect-ratio: 750 / 874;
+  /* 上の余白は、実サイトの 8cqw から「2026冬」の高さ分を引いてある（矢印の位置を実サイトと同じにするため） */
+  padding: 2.52cqw 0 0 5.33333cqw;
+  overflow: hidden;
 }
 
-.gr-hero__eyebrow {
-  font-size: 13px;
+/* ---- パーツ（画像・帯・ワードマーク）---- */
+.gr-pop-hero__stripes {
+  display: none; /* PCのみ */
+}
+
+/* 右上の大きな写真 */
+.gr-pop-hero__main {
+  position: absolute;
+  top: 0;
+  left: 22.6667%;
+  width: 77.3333%;
+  height: 82.3799%;
+  object-fit: cover;
+  border-top-left-radius: 4.4cqw;
+}
+
+/* 左下の写真（白い枠つき） */
+.gr-pop-hero__sub {
+  position: absolute;
+  top: 55.1487%;
+  left: 0;
+  box-sizing: content-box;
+  width: 48%;
+  height: 43.2494%;
+  border: solid #ffffff;
+  border-width: 1.6cqw 1.6cqw 1.6cqw 0;
+  border-radius: 0 5.6cqw 5.6cqw 0;
+  object-fit: cover;
+}
+
+/* 英字のロゴ文字（淡い水色のグラデーション）。文字を変えても、グラデーションはこの幅で固定 */
+.gr-pop-hero__wordmark {
+  position: absolute;
+  top: 85.9%;
+  left: 4.6667%;
+  width: 90.6667%;
+  margin: 0;
+  font-size: 13.7cqw;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: transparent;
+  background: linear-gradient(90deg, #97c5da 0%, #dcecf3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+}
+
+/* ---- 文字 ---- */
+.gr-pop-hero__eyebrow,
+.gr-pop-hero__title,
+.gr-pop-hero__arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.gr-pop-hero__eyebrow {
+  margin: 0 0 1cqw;
+  font-size: 3.73333cqw;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
   color: var(--gr-blue-700);
-  margin: 0 0 var(--gr-sp-3);
 }
 
-.gr-hero__title {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 900;
-  line-height: 1.3;
-  margin: 0 0 var(--gr-sp-4);
+/* 見出し(h1)の共通サイズより大きい。メインビジュアル用の例外。
+   実サイトは6文字で 8.53cqw。ここは7文字なので 6/7 倍（7.3cqw）にして、人物の顔にかからないようにしている */
+.gr-pop-hero__title {
+  margin: 0;
+  font-size: 7.3cqw;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  color: var(--gr-gray-800);
 }
 
-.gr-hero__lead {
-  font-size: 16px;
-  line-height: 1.9;
-  color: var(--gr-gray-700);
-  margin: 0 0 var(--gr-sp-5);
-  max-width: 560px;
+.gr-pop-hero__arrow {
+  margin: 4.26667cqw 0 0 5.33333cqw;
 }
 
-.gr-hero__quicklinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gr-sp-2);
-  margin-bottom: var(--gr-sp-6);
+.gr-pop-hero__arrow img {
+  display: block;
+  width: auto;
+  height: 36.4cqw;
 }
 
-.gr-hero__chip {
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: #ffffff;
-  border: 1px solid var(--gr-blue-200);
-  color: var(--gr-blue-800);
-  font-size: 13px;
-  font-weight: 500;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
+/* ---- PC ---- */
+@media (min-width: 1200px) {
+  .gr-pop-hero {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-.gr-hero__chip:hover {
-  background: var(--gr-blue-50);
-  border-color: var(--gr-blue-500);
-}
+  .gr-pop-hero__stage {
+    aspect-ratio: 1440 / 948;
+    padding: 2.93cqw 0 0 8.33333cqw;
+  }
 
-.gr-hero__actions {
-  display: flex;
-  gap: var(--gr-sp-3);
-  flex-wrap: wrap;
+  .gr-pop-hero__stripes {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gr-pop-hero__main {
+    left: 18.0556%;
+    width: 81.9444%;
+    height: 67.5105%;
+    border-top-left-radius: 2.9cqw;
+  }
+
+  .gr-pop-hero__sub {
+    top: 46.8354%;
+    left: 7.2222%;
+    width: 26.3889%;
+    height: 34.8101%;
+    border-width: 1.11111cqw;
+    border-radius: 3.4cqw;
+  }
+
+  .gr-pop-hero__wordmark {
+    top: 69.5%;
+    left: 37.3%;
+    width: 59.0972%;
+    font-size: 8.96cqw;
+  }
+
+  .gr-pop-hero__eyebrow {
+    margin-bottom: 0.4cqw;
+    font-size: 1.5625cqw;
+  }
+
+  .gr-pop-hero__title {
+    font-size: 5cqw;
+  }
+
+  .gr-pop-hero__arrow {
+    margin: 2.08333cqw 0 0 4.16667cqw;
+  }
+
+  .gr-pop-hero__arrow img {
+    height: 12.9514cqw;
+  }
 }

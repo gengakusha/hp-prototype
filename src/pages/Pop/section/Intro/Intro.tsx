@@ -16,9 +16,8 @@ export function Intro() {
   return (
     <section className="gr-Intro">
       <div className="gr-container gr-Intro__inner">
-        <h2 className="gr-Intro__title">
-          高校2年生向け マストバイ参考書10選
-        </h2>
+        <h2 className="gr-Intro__title">POP掲載の10冊</h2>
+        <p className="gr-Intro__lead">書店用 POP に掲載した参考書の一覧です。解説記事は、下の一覧から読めます。</p>
       </div>
 
       <figure className="gr-container gr-Intro__figure">
@@ -43,7 +42,10 @@ export function Intro() {
         </a>
         <figcaption className="gr-Intro__caption">
           {/* <span className="gr-Intro__hint">スマホでは、画像をタップすると大きな画像で読めます。</span> */}
-          <Button variant="primary" href={popList.original} target="_blank" rel="noreferrer">
+          <Button variant="primary" href="#articles">
+            解説記事の一覧を見る ↓
+          </Button>
+          <Button variant="secondary" href={popList.original} target="_blank" rel="noreferrer">
             拡大して見る
           </Button>
         </figcaption>
