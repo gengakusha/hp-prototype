@@ -51,6 +51,16 @@ npx tsc --noEmit -p tsconfig.app.json # 型チェック
 npm run build                         # 本番ビルド
 ```
 
+### 確認用 URL（Cloudflare）で共有する
+
+> 設定が終わるまでは `npm run dev -- --host` などでの共有になります。設定後に、下の（　）を埋めてください。
+
+- 公開先: Cloudflare（Workers の静的アセット、または Pages）。GitHub のこのリポジトリと連携し、PR ごとに確認用 URL が発行される想定です。
+- ビルド設定: ビルドコマンド `npm run build` / 出力フォルダ `dist` / Node は `.node-version`（22）
+- 確認用 URL の見つけ方: （設定後に記入）
+- 閲覧できる人: （Cloudflare Access などで社内に限定するかは、設定時に決める）
+- プロトタイプは `index.html` の `noindex` で検索に載せない設定です。**本番公開のときは、この行を削除してください。**
+
 ---
 
 ## 直したいとき（提案する人）

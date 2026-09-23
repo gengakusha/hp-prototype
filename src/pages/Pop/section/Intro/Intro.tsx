@@ -1,53 +1,34 @@
-import { Button } from "../../../../components/ui/Button/Button";
-import { PageIdx } from "../../../../components/ui/PageIdx/PageIdx";
+import { popIntroByGrade, type Grade, type PopIntroData } from "../../../../data/popIntro";
+import { BookScroller } from "./BookScroller/BookScroller";
 import "./Intro.css";
 import "../../../../styles/global.css";
 
-const popList = {
-  original: "/一覧用書店POP.jpg",
-  small: "/pop-list-1200.jpg",
-  large: "/pop-list-2400.jpg",
-  width: 4721, // 元画像の縦横
-  height: 3367,
-  alt: "現論会「高校2年生向け マストバイ参考書10選」の一覧",
-};
+// Intro は「設計図」、grade は「この設計図から、どの学年のインスタンスを作るか」を決める引数。
+//   <Intro grade="高2" />  … 高2用のインスタンス（popIntroByGrade["高2"] の内容で表示される）
+//   <Intro grade="高1" />  … 高1用のインスタンス
+// title / lead / image / books を個別に渡すと、その学年の初期値だけ上書きできる
+// （= コンストラクタのデフォルト引数を、呼び出し側で上書きするのと同じイメージ）。
+type IntroProps = Partial<PopIntroData> & { grade: Grade };
 
-export function Intro() {
+export function Intro({ grade, title, lead, image, books }: IntroProps) {
+  const base = popIntroByGrade[grade];
+  const popImage = image ?? base.image;
+  const popBooks = books ?? base.books;
+
   return (
     <section className="gr-Intro">
       <div className="gr-container gr-Intro__inner">
-        <h2 className="gr-Intro__title">
-          高校2年生向け マストバイ参考書10選
-        </h2>
+        <h2 className="gr-Intro__title">{title ?? base.title}</h2>
+        <p className="gr-Intro__lead">{lead ?? base.lead}</p>
+        {/* POPの実物（一覧画像）は、控えめなテキストリンクとして残している */}
+        <a className="gr-Intro__original-link" href={popImage.original} target="_blank" rel="noreferrer">
+          店頭POPの実物画像を見る ↗
+        </a>
       </div>
 
-      <figure className="gr-container gr-Intro__figure">
-        <a
-          className="gr-Intro__figure-link"
-          href={popList.original}
-          target="_blank"
-          rel="noreferrer"
-          aria-label="一覧画像を拡大して見る（新しいタブで開きます）"
-        >
-          <img
-            className="gr-Intro__img"
-            src={popList.small}
-            srcSet={`${popList.small} 1200w, ${popList.large} 2400w`}
-            sizes="(min-width: 1120px) 1072px, calc(100vw - 40px)"
-            width={popList.width}
-            height={popList.height}
-            alt={popList.alt}
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
-        <figcaption className="gr-Intro__caption">
-          {/* <span className="gr-Intro__hint">スマホでは、画像をタップすると大きな画像で読めます。</span> */}
-          <Button variant="primary" href={popList.original} target="_blank" rel="noreferrer">
-            拡大して見る
-          </Button>
-        </figcaption>
-      </figure>
+      <div className="gr-container gr-Intro__scroller-area">
+        <BookScroller books={popBooks} />
+      </div>
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import { Button } from "../../../../components/ui/Button/Button";
 import "./Hero.css";
 
 const quickLinks = [
@@ -30,25 +29,6 @@ export function Hero() {
               {q.label}
             </a>
           ))}
-        </div>
-
-        <div className="gr-hero__actions">
-          <Button
-            variant="cta"
-            href="https://genronkai.com/free-consultation/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            無料受験相談を予約する
-          </Button>
-          <Button
-            variant="secondary"
-            href="https://genronkai.com/request-information/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            資料を請求する
-          </Button>
         </div>
       </div>
     </section>

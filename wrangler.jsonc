@@ -1,0 +1,11 @@
+// Cloudflare Workers（静的アセット）で公開する場合の設定。
+// Cloudflare Pages で公開する場合は、このファイルは不要（削除してよい）。
+{
+  "name": "hp-prototype",
+  "compatibility_date": "2026-09-21",
+  "assets": {
+    "directory": "./dist",
+    // /pop などのURLを直接開いても index.html を返す（今のページ切り替えはブラウザ側で行っているため）
+    "not_found_handling": "single-page-application"
+  }
+}

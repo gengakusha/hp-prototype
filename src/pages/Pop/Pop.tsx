@@ -1,5 +1,4 @@
 import { Header } from "../../components/layout/Header/Header";
-import { PageIdx } from "../../components/ui/PageIdx/PageIdx";
 import { Hero } from "./section/Hero/Hero";
 import {Intro} from "./section/Intro/Intro";
 import {Timeline} from "./section/Timeline/Timeline";
@@ -13,7 +12,8 @@ export function Pop() {
       <Header />
       <main>
         <Hero />
-        <Intro />
+        <Intro grade="高2" />
+        <Intro grade="高1" />
         <Timeline />
       </main>
       <Footer />
