@@ -1,0 +1,153 @@
+/* 実サイトの .g-record-slider を参考にした値（矢印ボタンのサイズ・位置、進捗バーの幅など） */
+.gr-book-scroller {
+  position: relative;
+}
+
+/* ---- カードの並び（横スクロール本体） ---- */
+.gr-book-scroller__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 4px 8px; /* カードの影・フォーカスの枠が見切れないための余白 */
+  margin: 0;
+  list-style: none;
+  scrollbar-width: none; /* OS標準のスクロールバーは隠す（下の進捗バーで代わりに示す） */
+}
+.gr-book-scroller__track::-webkit-scrollbar {
+  display: none;
+}
+
+.gr-book-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 148px;
+}
+
+.gr-book-card__link {
+  display: block;
+  height: 100%;
+  border-radius: var(--gr-radius-m);
+  background: #ffffff;
+  border: 1px solid var(--gr-gray-200);
+  box-shadow: var(--gr-shadow-s);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease;
+}
+.gr-book-card__link:hover {
+  box-shadow: var(--gr-shadow-m);
+}
+
+.gr-book-card__thumb {
+  aspect-ratio: 3 / 4; /* 本の表紙に近い縦長。表紙画像がないので、今は代替画像を切り抜いて表示している */
+  overflow: hidden;
+}
+.gr-book-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gr-book-card__tag {
+  display: block;
+  margin: 10px 10px 4px;
+  padding: 3px 8px;
+  width: fit-content;
+  border-radius: 999px;
+  background: var(--gr-blue-500);
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.gr-book-card__title {
+  margin: 0;
+  padding: 0 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--gr-gray-800);
+}
+
+/* ---- 前後ボタン（PCのみ。スマホは指でスクロール） ---- */
+.gr-book-scroller__arrow {
+  display: none;
+}
+
+/* ---- 進捗バー（今どのあたりを見ているかの目安） ---- */
+.gr-book-scroller__bar {
+  position: relative;
+  max-width: 280px;
+  height: 4px;
+  margin: var(--gr-sp-3) auto 0;
+  background: var(--gr-gray-100);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.gr-book-scroller__bar-drag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--gr-blue-500);
+  border-radius: 999px;
+  transition: width 0.1s linear;
+}
+
+@media (min-width: 900px) {
+  .gr-book-card {
+    width: 168px;
+  }
+
+  .gr-book-card__title {
+    font-size: 14px;
+  }
+
+  /* PCは矢印ボタンで送れるので、両端の余白を広めに取る */
+  .gr-book-scroller__track {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  .gr-book-scroller__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px; /* 高さの半分ぶん上げて、縦方向の中央に合わせる */
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid var(--gr-gray-200);
+    box-shadow: var(--gr-shadow-s);
+    color: var(--gr-gray-800);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, opacity 0.15s ease;
+  }
+  .gr-book-scroller__arrow:hover {
+    box-shadow: var(--gr-shadow-m);
+  }
+  .gr-book-scroller__arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+    box-shadow: none;
+  }
+
+  .gr-book-scroller__arrow--prev {
+    left: 0;
+  }
+  .gr-book-scroller__arrow--next {
+    right: 0;
+  }
+
+  .gr-book-scroller__bar {
+    max-width: 400px;
+  }
+}

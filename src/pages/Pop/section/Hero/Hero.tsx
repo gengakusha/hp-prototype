@@ -1,7 +1,7 @@
 import "./Hero.css";
-const wordmark = "POP";
-const mainImage = { pc: "/pop-mv-main.jpg", sp: "/pop-mv-main-sp.jpg" };
-const subImage = "/pop-mv-sub.jpg";
+const wordmark = "2026冬POP";
+const mainImage = { pc: "/image.png", sp: "/pop-mv-main-sp.jpg" };
+// const subImage = "/pop-mv-sub.jpg";
 
 export function Hero() {
   return (
@@ -23,7 +23,7 @@ export function Hero() {
           <source media="(min-width: 1200px)" srcSet={mainImage.pc} />
           <img className="gr-pop-hero__main" src={mainImage.sp} alt="" width={580} height={720} />
         </picture>
-        <img className="gr-pop-hero__sub" src={subImage} alt="" width={380} height={330} />
+        {/* <img className="gr-pop-hero__sub" src={subImage} alt="" width={380} height={330} /> */}
         <p className="gr-pop-hero__wordmark gr-en" aria-hidden="true">
           {wordmark}
         </p>
