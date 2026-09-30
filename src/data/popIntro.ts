@@ -9,16 +9,16 @@ export type PopImage = {
   alt: string;
 };
 
-// 横スクロールTLに並ぶ、参考書1冊ぶんのデータ。
+// 横スクロールTLに並ぶ、参考書データ
 export type PopBook = {
   title: string;
-  category: string; // POP画像のハッシュタグに対応（例: "文法"）
-  href: string; // 解説記事のURL。まだ無ければ "#articles"（下の記事一覧へジャンプ）でよい
-  image?: string; // 表紙画像。省略すると現論会の代替画像になる
+  category: string; // POP画像のハッシュタグ
+  href: string; // 解説記事のURL
+  image?: string; // サムネ
 };
 
 export type PopIntroData = {
-  eyebrow: string; // 見出し上の英字ラベル（他セクションの "ARTICLES" 等と同じ役割）
+  eyebrow: string; 
   title: string;
   lead: string;
   image: PopImage;
@@ -27,15 +27,6 @@ export type PopIntroData = {
 
 export type Grade = "高1" | "高2" | "高3";
 
-// 学年ごとのテーマカラー。すべて既存のブランドカラー（tokens.css）の中から選んでいる（新しい色は増やしていない）。
-//   color … 学年ボタンなど、はっきり見せたい場所の色
-//   light … Intro より下の背景など、薄く敷きたい場所の色
-//   tone  … タグ（Badge）にそのまま渡せる、対応する色名
-//
-//   高1 = ブランドのメインブルー（--gr-blue-500）
-//   高2 = ネイビー（--gr-blue-800）。青の中でも高1より落ち着いた色にして、隣同士でも見分けやすくしている
-//   高3 = オレンジ（--gr-orange-500）。ブランドの中で唯一の非ブルー系アクセントカラーで、
-//         3学年の中でいちばん見分けやすい。CTAボタンにも使われる色で、直前期の後押しにも合う
 export type GradeTheme = { color: string; light: string; tone: Extract<BadgeTone, "blue" | "navy" | "campaign"> };
 
 export const gradeTheme: Record<Grade, GradeTheme> = {
@@ -47,8 +38,8 @@ export const gradeTheme: Record<Grade, GradeTheme> = {
 export const popIntroByGrade: Record<Grade, PopIntroData> = {
   高2: {
     eyebrow: "RECOMMEND",
-    title: "高校2年生向けPOPページ",
-    lead: "書店用 POP に掲載した、高校2年生向けの参考書一覧です。解説記事は、下の一覧から読めます。",
+    title: "高2向けマストバイ参考書",
+    lead: "POP参考書の中でも特に高校2年生におすすめしたい参考書です。\n気になった参考書の使い方は、下の解説記事一覧でくわしく読めます。",
     image: {
       original: "/一覧用書店POP.jpg",
       small: "/pop-list-1200.jpg",
@@ -57,7 +48,6 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
       height: 3367,
       alt: "現論会「高校2年生向け マストバイ参考書10選」の一覧",
     },
-    // ⚠️ 今はダミーデータ（POP画像の10冊に合わせた仮の並び）。実際の記事URLに差し替えること。
     books: [
       { title: "関正生の英文法 POLARIS 1", category: "文法", href: "#articles" },
       { title: "関正生の The Essentials 英文法 必修英文100", category: "文法", href: "#articles" },
@@ -73,10 +63,9 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
   },
   高1: {
     eyebrow: "RECOMMEND",
-    title: "高1向けPOP横スク",
-    lead: "書店用 POP に掲載した、高校1年生向けの参考書一覧です。解説記事は、下の一覧から読めます。",
+    title: "高1向けマストバイ参考書",
+    lead: "POP参考書の中でも特に高校1年生におすすめしたい参考書です。\n気になった参考書の使い方は、下の解説記事一覧でくわしく読めます。",
     image: {
-      // ⚠️ 高1用の一覧画像はまだ用意されていない。差し替えが必要な仮置き（高2用の画像を流用）。
       original: "/一覧用書店POP.jpg",
       small: "/pop-list-1200.jpg",
       large: "/pop-list-2400.jpg",
@@ -84,7 +73,6 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
       height: 3367,
       alt: "（仮画像・要差し替え）高校1年生向け参考書一覧",
     },
-    // ⚠️ 高1用の冊数・書名は未確定のダミーデータ。実際の選書に差し替えること。
     books: [
       { title: "英単語ターゲット1200（仮）", category: "単語", href: "#articles" },
       { title: "大岩のいちばんはじめの英文法（仮）", category: "文法", href: "#articles" },
@@ -95,10 +83,9 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
   },
   高3: {
     eyebrow: "RECOMMEND",
-    title: "高3向けPOP横スク",
-    lead: "書店用 POP に掲載した、高校3年生向けの参考書一覧です。解説記事は、下の一覧から読めます。",
+    title: "高3向けマストバイ参考書",
+    lead: "POP参考書の中でも特に高校3年生におすすめしたい参考書です。\n気になった参考書の使い方は、下の解説記事一覧でくわしく読めます。",
     image: {
-      // ⚠️ 高3用の一覧画像はまだ用意されていない。差し替えが必要な仮置き（高2用の画像を流用）。
       original: "/一覧用書店POP.jpg",
       small: "/pop-list-1200.jpg",
       large: "/pop-list-2400.jpg",
@@ -106,7 +93,6 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
       height: 3367,
       alt: "（仮画像・要差し替え）高校3年生向け参考書一覧",
     },
-    // ⚠️ 高3用の冊数・書名は未確定のダミーデータ。実際の選書に差し替えること。
     books: [
       { title: "共通テスト実戦問題集（仮）", category: "共通テスト", href: "#articles" },
       { title: "赤本 志望校の過去問（仮）", category: "過去問", href: "#articles" },

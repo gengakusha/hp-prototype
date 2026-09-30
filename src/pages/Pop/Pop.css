@@ -1,36 +1,103 @@
-/* 学年（高1・高2・高3）の切り替えボタン。中央揃えにして、上の文章と1つの塊に見えるようにしている */
+/* 学年（高1・高2・高3）の切り替えボタン。
+   3つで幅を分け合う（flex:1）ことで、画面幅に対する占有率を高くしている。
+   上の文章との間は、ボタンだと分かりやすいよう少し広めに余白を取っている */
 .gr-pop-grade-switch {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--gr-sp-2);
-  padding-top: var(--gr-sp-3);
+  gap: var(--gr-sp-3);
+  padding-top: var(--gr-sp-6);
   padding-bottom: var(--gr-sp-7);
 }
 
-/* 形（斜めピル）は共通の Badge（.gr-badge）に任せ、ここではボタンとして押しやすい大きさに広げるだけ。
-   .gr-badge との詳細度の勝ち負けが読み込み順に左右されないよう、".gr-pop-grade-badge.gr-badge" と重ねて書いている。 */
-.gr-pop-grade-badge.gr-badge {
+/* 実サイトのボタン（.g-header-school など）と同じ「完全な丸みを帯びたピル型」。
+   Badge（タグ、斜めの平行四辺形）とは別物として、ゼロから作っている。
+   常に見える影（浮き上がって見える）と、押した瞬間に沈み込む動きを付けて、
+   ホバーが効かないスマホでも「これは押せる」と伝わるようにしている。 */
+.gr-pop-grade-badge {
+  flex: 1 1 0; /* 3つで幅を均等に分け合う */
+  display: inline-flex;
   border: none;
-  min-height: 44px;
-  padding: 10px 24px;
-  font-family: inherit;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-
-/* 選ばれていないボタン。塗りつぶしの色（Badgeのtone）は使わず、
-   学年ごとの --gr-pop-grade-color で輪郭線だけを付ける */
-.gr-pop-grade-badge--muted.gr-badge {
+  border-radius: 999px; /* 高さの半分以上を指定すれば、両端が完全な半円になる */
+  min-height: 56px;
+  padding: 16px 20px;
   background: #ffffff;
   border: 1px solid var(--gr-pop-grade-color);
   color: var(--gr-pop-grade-color);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: var(--gr-ls-body);
+  cursor: pointer;
+  box-shadow: var(--gr-shadow-s);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+/* 押した瞬間（タップ中）に少し縮む。:hover と違い、スマホのタップでも発火する */
+.gr-pop-grade-badge:active {
+  box-shadow: none;
+  transform: scale(0.96);
+}
+
+/* 選ばれているボタン。学年ごとの色で塗りつぶし、影も強くして「より浮き上がっている」見た目にする */
+.gr-pop-grade-badge--selected {
+  background: var(--gr-pop-grade-color);
+  border-color: var(--gr-pop-grade-color);
+  color: #ffffff;
+  box-shadow: var(--gr-shadow-m);
+}
+
+/* ラベルとその右の矢印アイコンを、横に並べて中央揃えにする */
+.gr-pop-grade-badge__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gr-sp-2);
+  width: 100%;
+}
+
+/* 実サイトの .g-button-bule（button_arrow.svg）を参考にした、右端の丸い矢印。
+   実物は白丸＋青矢印の固定色だが、ここは学年ごとに色が変わるので、
+   選択中＝白丸に学年色の矢印／非選択＝学年色の丸に白い矢印、と配色を入れ替えて対応している。 */
+.gr-pop-grade-badge__arrow {
+  position: relative;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gr-pop-grade-color);
+}
+.gr-pop-grade-badge__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -5px 0 0 -4px;
+  border-right: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  transform: rotate(45deg);
+}
+
+.gr-pop-grade-badge--selected .gr-pop-grade-badge__arrow {
+  background: #ffffff;
+}
+.gr-pop-grade-badge--selected .gr-pop-grade-badge__arrow::after {
+  border-color: var(--gr-pop-grade-color);
 }
 
 @media (max-width: 600px) {
-  .gr-pop-grade-badge.gr-badge {
-    min-height: 48px;
+  /* PCと同じ余白だと、スマホでは窮屈になるため少し詰めている（占有率は flex:1 のままなので変わらない） */
+  .gr-pop-grade-switch {
+    gap: var(--gr-sp-2);
+  }
+  .gr-pop-grade-badge {
+    min-height: 56px;
+    padding: 14px 12px;
+    font-size: 15px;
+  }
+  .gr-pop-grade-badge__arrow {
+    width: 20px;
+    height: 20px;
   }
 }
 
