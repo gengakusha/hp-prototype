@@ -43,6 +43,7 @@
   max-width: 640px;
   color: var(--gr-gray-600);
   font-size: 15px;
+  white-space: pre-line; /* 文中に改行(\n)があれば、そこで折り返す。改行がなければ今までどおり */
 }
 
 .gr-section-heading__action {

@@ -53,10 +53,13 @@
   left: 4.6667%;
   width: 90.6667%;
   margin: 0;
-  font-size: 13.7cqw;
+  /* 元は13.7cqw。nowrapにした上で、右端(ステージの外)で切れないよう、
+     文字の実測幅（"BOOK GUIDE" で815px）が収まる大きさに少し縮めている */
+  font-size: 12.6cqw;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0.1em;
+  white-space: nowrap; /* "BOOK GUIDE" のようにスペースを含む語でも、2行に折り返させない */
   color: transparent;
   background: linear-gradient(90deg, #97c5da 0%, #dcecf3 100%);
   -webkit-background-clip: text;
@@ -81,6 +84,7 @@
 
   .gr-pop-hero__eyebrow,
   .gr-pop-hero__title,
+  .gr-pop-hero__submessage,
   .gr-pop-hero__wordmark,
   .gr-pop-hero__main,
   .gr-pop-hero__sub,
@@ -93,6 +97,9 @@
   }
   .gr-pop-hero__title {
     animation-delay: 0.15s;
+  }
+  .gr-pop-hero__submessage {
+    animation-delay: 0.2s;
   }
   .gr-pop-hero__main {
     animation-delay: 0.05s;
@@ -111,6 +118,7 @@
 /* ---- 文字 ---- */
 .gr-pop-hero__eyebrow,
 .gr-pop-hero__title,
+.gr-pop-hero__submessage,
 .gr-pop-hero__arrow {
   position: relative;
   z-index: 1;
@@ -134,6 +142,16 @@
   letter-spacing: 0.08em;
   line-height: 1.4;
   color: var(--gr-gray-800);
+}
+
+/* タイトルのサブメッセージ。実サイトの .g-mission__text（大見出しの下に添える、ひとまわり小さい文章）を参考にした大きさ */
+.gr-pop-hero__submessage {
+  margin: 2.4cqw 0 0;
+  font-size: 4cqw;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: var(--gr-gray-700);
 }
 
 .gr-pop-hero__arrow {
@@ -186,7 +204,7 @@
     top: 69.5%;
     left: 37.3%;
     width: 59.0972%;
-    font-size: 8.96cqw;
+    font-size: 8.3cqw; /* 元は8.96cqw。nowrapにした上でステージ右端に収まる大きさに調整 */
   }
 
   .gr-pop-hero__eyebrow {
@@ -196,6 +214,11 @@
 
   .gr-pop-hero__title {
     font-size: 5cqw;
+  }
+
+  .gr-pop-hero__submessage {
+    margin-top: 1.4cqw;
+    font-size: 1.9cqw;
   }
 
   .gr-pop-hero__arrow {

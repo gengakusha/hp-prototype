@@ -1,5 +1,7 @@
 import "./Hero.css";
-const wordmark = "2026冬POP";
+// 背景の飾り文字。ブランド名ではなく、このページ自体を端的に表す語にしている
+// （下の gr-pop-mission セクションの eyebrow「BOOK GUIDE」と同じ語で揃えている）。
+const wordmark = "BOOK GUIDE";
 const mainImage = { pc: "/image.png", sp: "/pop-mv-main-sp.jpg" };
 // const subImage = "/pop-mv-sub.jpg";
 
@@ -32,8 +34,10 @@ export function Hero() {
         <h1 className="gr-pop-hero__title">
           現論会最強
           <br />
-          参考書シリーズ
+          POP参考書シリーズ
         </h1>
+        {/* タイトルのサブメッセージ。実サイトの .g-mission（大見出しの下に、ひとまわり小さい文章を添える構成）を参考にしている */}
+        <p className="gr-pop-hero__submessage">その一冊を使いこなそう</p>
         <p className="gr-pop-hero__arrow" aria-hidden="true">
           <picture>
             <source media="(max-width: 767px)" srcSet="/pop-mv-arrow-sp.svg" width={19} height={138} />

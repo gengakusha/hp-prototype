@@ -33,7 +33,7 @@ export function Intro({ grade, eyebrow, title, lead, image, books }: IntroProps)
           href={popImage.original}
           target="_blank"
           rel="noreferrer"
-          aria-label="店頭POPの実物画像を拡大して見る（新しいタブで開きます）"
+          aria-label="店頭の掲示の実物画像を拡大して見る（新しいタブで開きます）"
         >
           <img
             src={popImage.small}

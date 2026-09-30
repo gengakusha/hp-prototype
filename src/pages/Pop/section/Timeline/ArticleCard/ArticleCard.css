@@ -1,10 +1,19 @@
-/* 実サイトの .g-press-card を参考にした値（スマホ → 1200px 以上で切り替え） */
+/* 実サイトの .g-press-card を参考にした値（スマホ → 1200px 以上で切り替え）。
+   カードの土台（白背景・枠線・影）は、マストバイのカード（BookScroller の .gr-book-card__link）と揃えている。
+   Introの背景は学年ごとの色で薄く塗られているため、カードに不透明な白がないと、
+   タイトルなどの文字がその背景色と混ざって見づらくなっていた。 */
 .gr-article-card__link {
   display: block;
-  transition: opacity 0.3s;
+  height: 100%;
+  border-radius: var(--gr-radius-m);
+  background: #ffffff;
+  border: 1px solid var(--gr-gray-200);
+  box-shadow: var(--gr-shadow-s);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease;
 }
 .gr-article-card__link:hover {
-  opacity: 0.8;
+  box-shadow: var(--gr-shadow-m);
 }
 
 .gr-article-card__img {
@@ -15,7 +24,6 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .gr-article-card__meta {
@@ -24,6 +32,7 @@
   align-items: center;
   gap: 0 16px;
   margin-bottom: 8px;
+  padding: 0 10px;
 }
 
 /* 学年タグ・カテゴリタグの見た目そのものは、共通の Badge + .gr-tag（global.css）に任せている。
@@ -43,6 +52,8 @@
 
 /* 見出し(h3)の共通サイズより小さい。2列のカードに収めるための例外 */
 .gr-article-card__title {
+  margin: 0;
+  padding: 0 10px 12px;
   color: var(--gr-gray-800);
   font-size: 14px;
   font-weight: 700;
@@ -52,9 +63,6 @@
 @media (min-width: 1200px) {
   .gr-article-card__img {
     margin-bottom: 20px;
-  }
-  .gr-article-card__img img {
-    border-radius: 16px;
   }
   .gr-article-card__meta {
     margin-bottom: 20px;
