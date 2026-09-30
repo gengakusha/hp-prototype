@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import type { PopBook } from "../../../../../data/popIntro";
+import { gradeTheme, type Grade, type PopBook } from "../../../../../data/popIntro";
+import { Badge } from "../../../../../components/ui/Badge/Badge";
 import "./BookScroller.css";
 
 // 実サイト（genronkai.com）トップの .g-record（合格実績のスライダー）を参考にした、
@@ -9,7 +10,9 @@ import "./BookScroller.css";
 // ここで初めて React の useRef / useState を使っている。
 //   trackRef … スクロールする要素そのものを直接つかむための参照（ボタンで scrollBy するのに必要）
 //   bar      … 進捗バー（下の水色のバー）の表示に使う「今どこまでスクロールしたか」の状態
-export function BookScroller({ books }: { books: PopBook[] }) {
+export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] }) {
+  // タグの色は、この横スクロールがどの学年のものかに合わせる
+  const tone = gradeTheme[grade].tone;
   const trackRef = useRef<HTMLUListElement>(null);
   const [bar, setBar] = useState({ widthPct: 100, leftPct: 0, atStart: true, atEnd: true });
 
@@ -59,7 +62,9 @@ export function BookScroller({ books }: { books: PopBook[] }) {
               <div className="gr-book-card__thumb">
                 <img src={book.image ?? "/no_picture.jpg"} alt="" width={960} height={540} loading="lazy" decoding="async" />
               </div>
-              <span className="gr-book-card__tag">{book.category}</span>
+              <Badge tone={tone} className="gr-book-card__tag gr-tag">
+                {book.category}
+              </Badge>
               <p className="gr-book-card__title">{book.title}</p>
             </a>
           </li>

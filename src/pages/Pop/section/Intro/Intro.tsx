@@ -1,4 +1,5 @@
-import { popIntroByGrade, type Grade, type PopIntroData } from "../../../../data/popIntro";
+import { SectionHeading } from "../../../../components/ui/SectionHeading/SectionHeading";
+import { popIntroByGrade, gradeTheme, type Grade, type PopIntroData } from "../../../../data/popIntro";
 import { BookScroller } from "./BookScroller/BookScroller";
 import "./Intro.css";
 import "../../../../styles/global.css";
@@ -10,24 +11,45 @@ import "../../../../styles/global.css";
 // （= コンストラクタのデフォルト引数を、呼び出し側で上書きするのと同じイメージ）。
 type IntroProps = Partial<PopIntroData> & { grade: Grade };
 
-export function Intro({ grade, title, lead, image, books }: IntroProps) {
+export function Intro({ grade, eyebrow, title, lead, image, books }: IntroProps) {
   const base = popIntroByGrade[grade];
   const popImage = image ?? base.image;
   const popBooks = books ?? base.books;
+  // 背景は、学年のテーマカラーをごく薄くした色（例: 高1なら薄い水色）
+  const backgroundColor = gradeTheme[grade].light;
 
   return (
-    <section className="gr-Intro">
-      <div className="gr-container gr-Intro__inner">
-        <h2 className="gr-Intro__title">{title ?? base.title}</h2>
-        <p className="gr-Intro__lead">{lead ?? base.lead}</p>
-        {/* POPの実物（一覧画像）は、控えめなテキストリンクとして残している */}
-        <a className="gr-Intro__original-link" href={popImage.original} target="_blank" rel="noreferrer">
-          店頭POPの実物画像を見る ↗
+    <section className="gr-Intro" style={{ backgroundColor }}>
+      <div className="gr-container">
+        {/* 見出し部分は、Timeline など他のセクションと同じ gr-section-heading（SectionHeading）を使っている */}
+        <SectionHeading eyebrow={eyebrow ?? base.eyebrow} title={title ?? base.title} description={lead ?? base.lead} />
+      </div>
+
+      <div className="gr-container gr-Intro__pop-image">
+        {/* 店頭POPの実物画像。クリック/タップで元画像を拡大できる。
+            ⚠️ 高1・高3はまだ専用のPOP画像がなく、popIntro.ts の設定により高2の画像を仮置きしている */}
+        <a
+          className="gr-Intro__pop-image-link"
+          href={popImage.original}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="店頭POPの実物画像を拡大して見る（新しいタブで開きます）"
+        >
+          <img
+            src={popImage.small}
+            srcSet={`${popImage.small} 1200w, ${popImage.large} 2400w`}
+            sizes="(min-width: 1120px) 1072px, calc(100vw - 40px)"
+            width={popImage.width}
+            height={popImage.height}
+            alt={popImage.alt}
+            loading="lazy"
+            decoding="async"
+          />
         </a>
       </div>
 
       <div className="gr-container gr-Intro__scroller-area">
-        <BookScroller books={popBooks} />
+        <BookScroller grade={grade} books={popBooks} />
       </div>
     </section>
   );

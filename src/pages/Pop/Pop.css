@@ -1,0 +1,111 @@
+/* 学年（高1・高2・高3）の切り替えボタン。中央揃えにして、上の文章と1つの塊に見えるようにしている */
+.gr-pop-grade-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gr-sp-2);
+  padding-top: var(--gr-sp-3);
+  padding-bottom: var(--gr-sp-7);
+}
+
+/* 形（斜めピル）は共通の Badge（.gr-badge）に任せ、ここではボタンとして押しやすい大きさに広げるだけ。
+   .gr-badge との詳細度の勝ち負けが読み込み順に左右されないよう、".gr-pop-grade-badge.gr-badge" と重ねて書いている。 */
+.gr-pop-grade-badge.gr-badge {
+  border: none;
+  min-height: 44px;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* 選ばれていないボタン。塗りつぶしの色（Badgeのtone）は使わず、
+   学年ごとの --gr-pop-grade-color で輪郭線だけを付ける */
+.gr-pop-grade-badge--muted.gr-badge {
+  background: #ffffff;
+  border: 1px solid var(--gr-pop-grade-color);
+  color: var(--gr-pop-grade-color);
+}
+
+@media (max-width: 600px) {
+  .gr-pop-grade-badge.gr-badge {
+    min-height: 48px;
+  }
+}
+
+/* 実サイトの .g-mission の実測値を参考にした、Heroの下の説明文。
+   左寄せ＋下線バーの gr-section-heading は使わず、中央揃え・装飾なしにしている。 */
+.gr-pop-mission {
+  padding-top: var(--gr-sp-7);
+  text-align: center;
+}
+
+.gr-pop-mission__eyebrow {
+  margin: 0 0 var(--gr-sp-2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gr-blue-700);
+}
+
+/* 実サイトの .g-strengths-lead__copy を参考にした、大きな一文。
+   見出し(h1〜h4)のサイズのルールは使わず、24px→56pxという独自の大きさにしている。
+   四隅の一部にカギ括弧のような線を引いて、引用のような見せ方にしている。 */
+.gr-pop-mission__quote {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 var(--gr-sp-3);
+  padding: 0 14px;
+  color: var(--gr-blue-500);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.5;
+}
+.gr-pop-mission__quote::before,
+.gr-pop-mission__quote::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+.gr-pop-mission__quote::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid var(--gr-gray-900);
+  border-left: 1px solid var(--gr-gray-900);
+}
+.gr-pop-mission__quote::after {
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid var(--gr-gray-900);
+  border-bottom: 1px solid var(--gr-gray-900);
+}
+
+.gr-pop-mission__desc {
+  margin: 0;
+  color: var(--gr-gray-800);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+@media (min-width: 1200px) {
+  .gr-pop-mission__quote {
+    margin-bottom: var(--gr-sp-5);
+    padding: 0 24px;
+    font-size: 56px;
+  }
+  .gr-pop-mission__quote::before,
+  .gr-pop-mission__quote::after {
+    width: 32px;
+    height: 32px;
+  }
+  .gr-pop-mission__desc {
+    font-size: 20px;
+    letter-spacing: 0.06em;
+  }
+}

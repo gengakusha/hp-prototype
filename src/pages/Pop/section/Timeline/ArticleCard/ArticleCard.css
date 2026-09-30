@@ -26,18 +26,13 @@
   margin-bottom: 8px;
 }
 
-.gr-article-card__categories {
+/* 学年タグ・カテゴリタグの見た目そのものは、共通の Badge + .gr-tag（global.css）に任せている。
+   ここでは並べ方（横並び・折り返し）だけを決める */
+.gr-article-card__tags {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 4px;
-}
-.gr-article-card__categories li {
-  padding: 6px 8px;
-  border-radius: 4px;
-  background: #93c2d8; /* 実サイトのカテゴリラベルと同じ淡いブルー */
-  color: #ffffff;
-  font-size: 10px;
-  line-height: 1;
 }
 
 .gr-article-card__date {
@@ -63,10 +58,6 @@
   }
   .gr-article-card__meta {
     margin-bottom: 20px;
-  }
-  .gr-article-card__categories li {
-    padding: 8px;
-    font-size: 12px;
   }
   .gr-article-card__date {
     font-size: 14px;

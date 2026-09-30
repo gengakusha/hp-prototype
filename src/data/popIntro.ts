@@ -1,3 +1,5 @@
+import type { Tone as BadgeTone } from "../components/ui/Badge/Badge";
+
 export type PopImage = {
   original: string; // クリック/タップで開く元画像
   small: string; // 通常表示用
@@ -16,17 +18,36 @@ export type PopBook = {
 };
 
 export type PopIntroData = {
+  eyebrow: string; // 見出し上の英字ラベル（他セクションの "ARTICLES" 等と同じ役割）
   title: string;
   lead: string;
   image: PopImage;
   books: PopBook[];
 };
 
-export type Grade = "高2" | "高1";
+export type Grade = "高1" | "高2" | "高3";
+
+// 学年ごとのテーマカラー。すべて既存のブランドカラー（tokens.css）の中から選んでいる（新しい色は増やしていない）。
+//   color … 学年ボタンなど、はっきり見せたい場所の色
+//   light … Intro より下の背景など、薄く敷きたい場所の色
+//   tone  … タグ（Badge）にそのまま渡せる、対応する色名
+//
+//   高1 = ブランドのメインブルー（--gr-blue-500）
+//   高2 = ネイビー（--gr-blue-800）。青の中でも高1より落ち着いた色にして、隣同士でも見分けやすくしている
+//   高3 = オレンジ（--gr-orange-500）。ブランドの中で唯一の非ブルー系アクセントカラーで、
+//         3学年の中でいちばん見分けやすい。CTAボタンにも使われる色で、直前期の後押しにも合う
+export type GradeTheme = { color: string; light: string; tone: Extract<BadgeTone, "blue" | "navy" | "campaign"> };
+
+export const gradeTheme: Record<Grade, GradeTheme> = {
+  高1: { color: "var(--gr-blue-500)", light: "var(--gr-blue-50)", tone: "blue" },
+  高2: { color: "var(--gr-blue-800)", light: "var(--gr-blue-100)", tone: "navy" },
+  高3: { color: "var(--gr-orange-500)", light: "var(--gr-orange-100)", tone: "campaign" },
+};
 
 export const popIntroByGrade: Record<Grade, PopIntroData> = {
   高2: {
-    title: "高2向けPOP横スク",
+    eyebrow: "RECOMMEND",
+    title: "高校2年生向けPOPページ",
     lead: "書店用 POP に掲載した、高校2年生向けの参考書一覧です。解説記事は、下の一覧から読めます。",
     image: {
       original: "/一覧用書店POP.jpg",
@@ -51,6 +72,7 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
     ],
   },
   高1: {
+    eyebrow: "RECOMMEND",
     title: "高1向けPOP横スク",
     lead: "書店用 POP に掲載した、高校1年生向けの参考書一覧です。解説記事は、下の一覧から読めます。",
     image: {
@@ -69,6 +91,28 @@ export const popIntroByGrade: Record<Grade, PopIntroData> = {
       { title: "中学数学から高校数学への橋渡し（仮）", category: "解法暗記", href: "#articles" },
       { title: "システム英単語（仮）", category: "単語", href: "#articles" },
       { title: "現代文キーワード読解（仮）", category: "現代文", href: "#articles" },
+    ],
+  },
+  高3: {
+    eyebrow: "RECOMMEND",
+    title: "高3向けPOP横スク",
+    lead: "書店用 POP に掲載した、高校3年生向けの参考書一覧です。解説記事は、下の一覧から読めます。",
+    image: {
+      // ⚠️ 高3用の一覧画像はまだ用意されていない。差し替えが必要な仮置き（高2用の画像を流用）。
+      original: "/一覧用書店POP.jpg",
+      small: "/pop-list-1200.jpg",
+      large: "/pop-list-2400.jpg",
+      width: 4721,
+      height: 3367,
+      alt: "（仮画像・要差し替え）高校3年生向け参考書一覧",
+    },
+    // ⚠️ 高3用の冊数・書名は未確定のダミーデータ。実際の選書に差し替えること。
+    books: [
+      { title: "共通テスト実戦問題集（仮）", category: "共通テスト", href: "#articles" },
+      { title: "赤本 志望校の過去問（仮）", category: "過去問", href: "#articles" },
+      { title: "世界一わかりやすい 英作文（仮）", category: "英作文", href: "#articles" },
+      { title: "直前まで使える 一問一答（仮）", category: "直前対策", href: "#articles" },
+      { title: "過去問ノート総復習（仮）", category: "過去問", href: "#articles" },
     ],
   },
 };
