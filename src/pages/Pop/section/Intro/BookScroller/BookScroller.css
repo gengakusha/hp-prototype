@@ -19,10 +19,13 @@
   display: none;
 }
 
+/* 横幅・縦幅は、下の「参考書記事一覧」の記事カード（ArticleCard）の実寸をそのまま流用している。
+   ArticleCard はグリッドの中で幅が伸び縮みするが、横スクロールのカードは幅を固定する必要があるため、
+   ArticleCard が実際に表示されている幅（スマホ390px幅で168px／PC1200px以上で327px）の数値を写している。 */
 .gr-book-card {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  width: 148px;
+  width: 168px;
 }
 
 .gr-book-card__link {
@@ -40,7 +43,7 @@
 }
 
 .gr-book-card__thumb {
-  aspect-ratio: 3 / 4; /* 本の表紙に近い縦長。表紙画像がないので、今は代替画像を切り抜いて表示している */
+  aspect-ratio: 16 / 9; /* ArticleCard のサムネイルと同じ比率に揃えている */
   overflow: hidden;
 }
 .gr-book-card__thumb img {
@@ -49,16 +52,9 @@
   object-fit: cover;
 }
 
+/* 見た目そのもの（形・色）は、共通の Badge + .gr-tag（global.css）に任せている。ここでは位置だけ決める */
 .gr-book-card__tag {
-  display: block;
   margin: 10px 10px 4px;
-  padding: 3px 8px;
-  width: fit-content;
-  border-radius: 999px;
-  background: var(--gr-blue-500);
-  color: #ffffff;
-  font-size: 10px;
-  line-height: 1.4;
 }
 
 .gr-book-card__title {
@@ -96,9 +92,10 @@
   transition: width 0.1s linear;
 }
 
-@media (min-width: 900px) {
+/* ArticleCard の幅が切り替わるのも1200pxからなので、ここも同じ位置で切り替える */
+@media (min-width: 1200px) {
   .gr-book-card {
-    width: 168px;
+    width: 327px;
   }
 
   .gr-book-card__title {

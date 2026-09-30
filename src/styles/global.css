@@ -157,6 +157,21 @@ button {
   font-weight: 600;
 }
 
+/* 小さいタグ表示（記事カード・参考書カードなどの、コンパクトなラベル）。
+   Badge（.gr-badge）の斜めのピル形と色はそのまま、サイズだけ小さくする。
+   使い方: <Badge className="gr-tag">文法</Badge> */
+.gr-tag {
+  padding: 3px 8px;
+  font-size: 10px;
+}
+
+@media (min-width: 1200px) {
+  .gr-tag {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 860px) {
   .gr-container {
     padding: 0 20px;

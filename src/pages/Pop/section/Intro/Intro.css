@@ -1,39 +1,41 @@
+/* 実サイトの .g-record / .g-youtube を参考に、色が始まる角（左上）だけ大きく丸めている。
+   Timeline も同じ学年色でひと続きになるので、Introの下側は角丸にしない（継ぎ目なしでつながる）。 */
 .gr-Intro {
   padding: var(--gr-sp-7) 0 var(--gr-sp-6);
-  border-bottom: 1px solid var(--gr-gray-100);
+  border-radius: 20px 0 0 0;
 }
 
-.gr-Intro__inner {
-  max-width: 760px;
+@media (min-width: 1200px) {
+  .gr-Intro {
+    border-radius: 40px 0 0 0;
+  }
 }
 
-.gr-Intro__title {
-  margin: 0 0 var(--gr-sp-3);
+
+.gr-Intro__pop-image {
+  margin-top: var(--gr-sp-5);
 }
 
-.gr-Intro__lead {
-  font-size: 16px;
-  line-height: 1.9;
-  color: var(--gr-gray-700);
-  margin: 0;
-  max-width: 560px;
+.gr-Intro__pop-image-link {
+  display: block;
+  line-height: 0; /* 画像下の隙間を消す */
+  background: #ffffff;
+  border: 1px solid var(--gr-gray-200);
+  border-radius: var(--gr-radius-m);
+  overflow: hidden;
+  box-shadow: var(--gr-shadow-s);
+  transition: box-shadow 0.15s ease;
+}
+.gr-Intro__pop-image-link:hover {
+  box-shadow: var(--gr-shadow-m);
 }
 
-.gr-Intro__original-link {
-  display: inline-block;
-  margin-top: var(--gr-sp-2);
-  font-size: 13px;
-  color: var(--gr-blue-700);
-  text-decoration: underline;
-}
-.gr-Intro__original-link:hover {
-  color: var(--gr-blue-800);
+.gr-Intro__pop-image-link img {
+  display: block;
+  width: 100%;
+  height: auto; /* width / height 属性の比率を保ったまま、横幅に合わせて縮む */
 }
 
-/* 参考書の横スクロールTL。gr-container の外側に少しはみ出させて、
-   カードが画面端まで続いている（＝まだ他にもある）ことが伝わるようにしている */
-/* .gr-container との詳細度の勝ち負けを、読み込み順に左右されないようにするため
-   ".gr-Intro__scroller-area.gr-container" と2つ重ねて書いている */
 .gr-Intro__scroller-area.gr-container {
   margin-top: var(--gr-sp-5);
   padding-left: 0;

@@ -6,17 +6,21 @@ export function SectionHeading({
   title,
   description,
   action,
+  level = "h2",
 }: {
   eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
   action?: ReactNode;
+  // 見出しレベル（h1は使わない）。ページの中で、この見出しが他の見出しの下にぶら下がる場合は "h3" を指定する
+  level?: "h2" | "h3";
 }) {
+  const Title = level;
   return (
     <div className="gr-section-heading">
       <div>
         {eyebrow && <p className="gr-section-heading__eyebrow gr-en">{eyebrow}</p>}
-        <h2 className="gr-section-heading__title">{title}</h2>
+        <Title className="gr-section-heading__title">{title}</Title>
         <div className="gr-section-heading__bar" aria-hidden="true">
           <span className="gr-section-heading__bar-main" />
           <span className="gr-section-heading__bar-accent" />

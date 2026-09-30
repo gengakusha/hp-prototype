@@ -64,6 +64,50 @@
   pointer-events: none;
 }
 
+/* ---- 開いた瞬間の演出 ----
+   各パーツが、少しずつ時間差でふわっと現れる。
+   「動きを避けたい」設定（prefers-reduced-motion）の人には適用しない。 */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes gr-pop-hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .gr-pop-hero__eyebrow,
+  .gr-pop-hero__title,
+  .gr-pop-hero__wordmark,
+  .gr-pop-hero__main,
+  .gr-pop-hero__sub,
+  .gr-pop-hero__arrow {
+    animation: gr-pop-hero-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .gr-pop-hero__eyebrow {
+    animation-delay: 0.05s;
+  }
+  .gr-pop-hero__title {
+    animation-delay: 0.15s;
+  }
+  .gr-pop-hero__main {
+    animation-delay: 0.05s;
+  }
+  .gr-pop-hero__sub {
+    animation-delay: 0.3s;
+  }
+  .gr-pop-hero__wordmark {
+    animation-delay: 0.4s;
+  }
+  .gr-pop-hero__arrow {
+    animation-delay: 0.5s;
+  }
+}
+
 /* ---- 文字 ---- */
 .gr-pop-hero__eyebrow,
 .gr-pop-hero__title,

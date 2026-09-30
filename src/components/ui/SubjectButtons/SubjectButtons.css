@@ -1,0 +1,4 @@
+/* ボタン自体の見た目は components/ui/SubjectButton/sb.css に任せ、ここではセクションの余白だけ決める */
+.gr-subject-buttons {
+  padding: var(--gr-sp-5) 0 0;
+}
