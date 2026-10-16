@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { popSubjects } from "../../../data/popSubjects";
+import type { Subject } from "../../../data/subjectTheme";
 import "./SubjectButtons.css";
 
-export function SubjectButtons() {
-  const [openSubject, setOpenSubject] = useState<string | null>(null);
+export function SubjectButtons({ subjects }: { subjects: Subject[] }) {
+  const [openSubject, setOpenSubject] = useState<Subject | null>(null);
 
   return (
     <section className="gr-subject-buttons" aria-label="科目">
       <div className="gr-container">
         <ul className="subject-list">
-          {popSubjects.map((subject) => {
+          {subjects.map((subject) => {
             const expanded = openSubject === subject;
             return (
               <li key={subject}>

@@ -1,0 +1,49 @@
+.gr-article-card__img {
+  margin-bottom: 12px;
+}
+
+.gr-article-card__meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0 16px;
+  margin-bottom: 8px;
+  padding: 0 10px;
+}
+
+.gr-article-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.gr-article-card__date {
+  color: var(--gr-gray-600);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.gr-article-card__title {
+  margin: 0;
+  padding: 0 10px 12px;
+  color: var(--gr-gray-800);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@media (min-width: 1200px) {
+  .gr-article-card__img {
+    margin-bottom: 20px;
+  }
+  .gr-article-card__meta {
+    margin-bottom: 20px;
+  }
+  .gr-article-card__date {
+    font-size: 14px;
+  }
+  .gr-article-card__title {
+    font-size: 16px;
+  }
+}

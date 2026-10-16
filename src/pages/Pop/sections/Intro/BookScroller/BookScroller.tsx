@@ -1,22 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { gradeTheme, type Grade, type PopBook } from "../../../../../data/popIntro";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { PopArticle } from "../../../../../data/popArticles";
+import { gradeTheme, type Grade } from "../../../../../data/popIntro";
 import { Badge } from "../../../../../components/ui/Badge/Badge";
+import { LinkCard } from "../../../../../components/ui/LinkCard/LinkCard";
+import { Thumbnail } from "../../../../../components/ui/Thumbnail/Thumbnail";
 import "./BookScroller.css";
 
-// 実サイト（genronkai.com）トップの .g-record（合格実績のスライダー）を参考にした、
-// 参考書の横スクロールTL。仕組みは同じ「横スクロール + 前後ボタン + 進捗バー」だが、
-// Swiper 等のライブラリは使わず、ブラウザ標準のスクロール機能だけで作っている。
-//
-// ここで初めて React の useRef / useState を使っている。
-//   trackRef … スクロールする要素そのものを直接つかむための参照（ボタンで scrollBy するのに必要）
-//   bar      … 進捗バー（下の水色のバー）の表示に使う「今どこまでスクロールしたか」の状態
-export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] }) {
-  // タグの色は、この横スクロールがどの学年のものかに合わせる
+export function BookScroller({ grade, books }: { grade: Grade; books: PopArticle[] }) {
   const tone = gradeTheme[grade].tone;
   const trackRef = useRef<HTMLUListElement>(null);
   const [bar, setBar] = useState({ widthPct: 100, leftPct: 0, atStart: true, atEnd: true });
 
-  const updateBar = () => {
+  const updateBar = useCallback(() => {
     const el = trackRef.current;
     if (!el) return;
     const { scrollWidth, clientWidth, scrollLeft } = el;
@@ -24,21 +19,19 @@ export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] 
     const widthPct = Math.min(100, (clientWidth / scrollWidth) * 100);
     const leftPct = scrollable <= 0 ? 0 : (scrollLeft / scrollable) * (100 - widthPct);
     setBar({ widthPct, leftPct, atStart: scrollLeft <= 1, atEnd: scrollLeft >= scrollable - 1 });
-  };
+  }, []);
 
-  // 表示直後は横幅がまだ分からないので、マウント時と画面幅が変わったときに計算し直す
   useEffect(() => {
     updateBar();
     window.addEventListener("resize", updateBar);
     return () => window.removeEventListener("resize", updateBar);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [books]);
+  }, [books, updateBar]);
 
   const scrollByCard = (direction: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>(".gr-book-card");
-    const gap = 16;
+    const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
     const step = (card?.offsetWidth ?? 200) + gap;
     el.scrollBy({ left: step * direction, behavior: "smooth" });
   };
@@ -58,15 +51,13 @@ export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] 
       <ul className="gr-book-scroller__track" ref={trackRef} onScroll={updateBar}>
         {books.map((book) => (
           <li className="gr-book-card" key={book.title}>
-            <a className="gr-book-card__link" href={book.href}>
-              <div className="gr-book-card__thumb">
-                <img src={book.image ?? "/no_picture.jpg"} alt="" width={960} height={540} loading="lazy" decoding="async" />
-              </div>
+            <LinkCard href={book.href}>
+              <Thumbnail src={book.image} />
               <Badge tone={tone} className="gr-book-card__tag gr-tag">
-                {book.category}
+                {book.categories[0]}
               </Badge>
-              <p className="gr-book-card__title">{book.title}</p>
-            </a>
+              <p className="gr-book-card__title">{book.book}</p>
+            </LinkCard>
           </li>
         ))}
       </ul>

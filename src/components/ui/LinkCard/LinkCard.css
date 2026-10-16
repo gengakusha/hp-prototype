@@ -1,0 +1,13 @@
+.gr-link-card {
+  display: block;
+  height: 100%;
+  border-radius: var(--gr-radius-m);
+  background: #ffffff;
+  border: 1px solid var(--gr-gray-200);
+  box-shadow: var(--gr-shadow-s);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease;
+}
+.gr-link-card:hover {
+  box-shadow: var(--gr-shadow-m);
+}

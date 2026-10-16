@@ -1,4 +1,3 @@
-/* 教科（英数国理社情）ごとの帯。.gr-container の外にあるので、画面幅いっぱいに広がる */
 .gr-timeline__subjects {
   display: flex;
   flex-direction: column;
@@ -6,15 +5,11 @@
   margin-top: var(--gr-sp-6);
 }
 
-/* 1教科ぶんの帯。背景は、その教科の薄い色（--gr-subject-light）を画面幅いっぱいに敷く。
-   中身（教科ラベル・カード一覧）は、内側の .gr-container で他のセクションと同じ幅に揃えている */
 .gr-timeline__subject {
   padding: var(--gr-sp-4) 0;
   background: var(--gr-subject-light);
 }
 
-/* 教科名の見出し(h3)。SectionHeading の title＋バーと同じ考え方で、
-   文字を教科の色にし、下に教科の色のバーを1本引いている */
 .gr-timeline__subject-label {
   position: relative;
   margin: 0 0 var(--gr-sp-4);
@@ -30,7 +25,6 @@
   transform: skewX(var(--gr-skew));
 }
 
-/* 記事カードの一覧: スマホは2列、1200px 以上は3列（実サイトの .g-press-list と同じ間隔） */
 .gr-timeline__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
