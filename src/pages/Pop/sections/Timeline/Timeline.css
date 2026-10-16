@@ -31,6 +31,13 @@
   gap: 30px 15px;
 }
 
+@media (min-width: 768px) {
+  .gr-timeline__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 24px;
+  }
+}
+
 @media (min-width: 1200px) {
   .gr-timeline__subject {
     padding: var(--gr-sp-6) 0;

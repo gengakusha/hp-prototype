@@ -18,6 +18,7 @@
   font-size: 17px;
   font-weight: 700;
   letter-spacing: var(--gr-ls-body);
+  white-space: nowrap;
   cursor: pointer;
   box-shadow: var(--gr-shadow-s);
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
@@ -82,5 +83,14 @@
   .gr-pop-grade-badge__arrow {
     width: 20px;
     height: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .gr-pop-grade-badge {
+    padding: 14px 8px;
+  }
+  .gr-pop-grade-badge__arrow {
+    display: none;
   }
 }

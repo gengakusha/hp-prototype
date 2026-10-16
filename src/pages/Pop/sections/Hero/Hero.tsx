@@ -1,7 +1,7 @@
 import "./Hero.css";
 
 const wordmark = "BOOK GUIDE";
-const mainImage = { pc: "/image.png", sp: "/pop-mv-main-sp.jpg" };
+const mainImage = "/image.png";
 
 export function Hero() {
   return (
@@ -18,10 +18,7 @@ export function Hero() {
           <polygon points="0,575 373,948 345,948 0,603" fill="url(#gr-pop-hero-stripe)" />
         </svg>
 
-        <picture>
-          <source media="(min-width: 1200px)" srcSet={mainImage.pc} />
-          <img className="gr-pop-hero__main" src={mainImage.sp} alt="" width={580} height={720} />
-        </picture>
+        <img className="gr-pop-hero__main" src={mainImage} alt="" width={5692} height={3200} />
         <p className="gr-pop-hero__wordmark gr-en" aria-hidden="true">
           {wordmark}
         </p>
@@ -34,11 +31,7 @@ export function Hero() {
         </h1>
         <p className="gr-pop-hero__submessage">その一冊を使いこなそう</p>
         <p className="gr-pop-hero__arrow" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 767px)" srcSet="/pop-mv-arrow-sp.svg" width={19} height={138} />
-            <source media="(min-width: 768px)" srcSet="/pop-mv-arrow-pc.svg" width={24} height={188} />
-            <img src="/pop-mv-arrow-pc.svg" alt="" width={24} height={188} />
-          </picture>
+          <img src="/pop-mv-arrow-pc.svg" alt="" width={24} height={188} />
         </p>
       </div>
     </section>
