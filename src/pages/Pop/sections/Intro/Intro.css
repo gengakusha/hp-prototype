@@ -1,5 +1,3 @@
-/* 実サイトの .g-record / .g-youtube を参考に、色が始まる角（左上）だけ大きく丸めている。
-   Timeline も同じ学年色でひと続きになるので、Introの下側は角丸にしない（継ぎ目なしでつながる）。 */
 .gr-Intro {
   padding: var(--gr-sp-7) 0 var(--gr-sp-6);
   border-radius: 20px 0 0 0;
@@ -11,14 +9,13 @@
   }
 }
 
-
 .gr-Intro__pop-image {
   margin-top: var(--gr-sp-5);
 }
 
 .gr-Intro__pop-image-link {
   display: block;
-  line-height: 0; /* 画像下の隙間を消す */
+  line-height: 0;
   background: #ffffff;
   border: 1px solid var(--gr-gray-200);
   border-radius: var(--gr-radius-m);
@@ -33,7 +30,7 @@
 .gr-Intro__pop-image-link img {
   display: block;
   width: 100%;
-  height: auto; /* width / height 属性の比率を保ったまま、横幅に合わせて縮む */
+  height: auto;
 }
 
 .gr-Intro__scroller-area.gr-container {

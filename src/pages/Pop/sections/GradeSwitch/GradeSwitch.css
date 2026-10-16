@@ -1,0 +1,86 @@
+.gr-pop-grade-switch {
+  display: flex;
+  gap: var(--gr-sp-3);
+  padding-top: var(--gr-sp-6);
+  padding-bottom: var(--gr-sp-7);
+}
+
+.gr-pop-grade-badge {
+  flex: 1 1 0;
+  display: inline-flex;
+  border-radius: 999px;
+  min-height: 56px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid var(--gr-pop-grade-color);
+  color: var(--gr-pop-grade-color);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: var(--gr-ls-body);
+  cursor: pointer;
+  box-shadow: var(--gr-shadow-s);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.gr-pop-grade-badge:active {
+  box-shadow: none;
+  transform: scale(0.96);
+}
+
+.gr-pop-grade-badge--selected {
+  background: var(--gr-pop-grade-color);
+  border-color: var(--gr-pop-grade-color);
+  color: #ffffff;
+  box-shadow: var(--gr-shadow-m);
+}
+
+.gr-pop-grade-badge__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gr-sp-2);
+  width: 100%;
+}
+
+.gr-pop-grade-badge__arrow {
+  position: relative;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gr-pop-grade-color);
+}
+.gr-pop-grade-badge__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -5px 0 0 -4px;
+  border-right: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  transform: rotate(45deg);
+}
+
+.gr-pop-grade-badge--selected .gr-pop-grade-badge__arrow {
+  background: #ffffff;
+}
+.gr-pop-grade-badge--selected .gr-pop-grade-badge__arrow::after {
+  border-color: var(--gr-pop-grade-color);
+}
+
+@media (max-width: 600px) {
+  .gr-pop-grade-switch {
+    gap: var(--gr-sp-2);
+  }
+  .gr-pop-grade-badge {
+    padding: 14px 12px;
+    font-size: 15px;
+  }
+  .gr-pop-grade-badge__arrow {
+    width: 20px;
+    height: 20px;
+  }
+}

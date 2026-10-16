@@ -1,27 +1,22 @@
-/* 実サイトの .g-record-slider を参考にした値（矢印ボタンのサイズ・位置、進捗バーの幅など） */
 .gr-book-scroller {
   position: relative;
 }
 
-/* ---- カードの並び（横スクロール本体） ---- */
 .gr-book-scroller__track {
   display: flex;
   gap: 16px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 4px 4px 8px; /* カードの影・フォーカスの枠が見切れないための余白 */
+  padding: 4px 4px 8px;
   margin: 0;
   list-style: none;
-  scrollbar-width: none; /* OS標準のスクロールバーは隠す（下の進捗バーで代わりに示す） */
+  scrollbar-width: none;
 }
 .gr-book-scroller__track::-webkit-scrollbar {
   display: none;
 }
 
-/* 横幅・縦幅は、下の「参考書記事一覧」の記事カード（ArticleCard）の実寸をそのまま流用している。
-   ArticleCard はグリッドの中で幅が伸び縮みするが、横スクロールのカードは幅を固定する必要があるため、
-   ArticleCard が実際に表示されている幅（スマホ390px幅で168px／PC1200px以上で327px）の数値を写している。 */
 .gr-book-card {
   flex: 0 0 auto;
   scroll-snap-align: start;
@@ -43,7 +38,7 @@
 }
 
 .gr-book-card__thumb {
-  aspect-ratio: 16 / 9; /* ArticleCard のサムネイルと同じ比率に揃えている */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 .gr-book-card__thumb img {
@@ -52,7 +47,6 @@
   object-fit: cover;
 }
 
-/* 見た目そのもの（形・色）は、共通の Badge + .gr-tag（global.css）に任せている。ここでは位置だけ決める */
 .gr-book-card__tag {
   margin: 10px 10px 4px;
 }
@@ -66,12 +60,10 @@
   color: var(--gr-gray-800);
 }
 
-/* ---- 前後ボタン（PCのみ。スマホは指でスクロール） ---- */
 .gr-book-scroller__arrow {
   display: none;
 }
 
-/* ---- 進捗バー（今どのあたりを見ているかの目安） ---- */
 .gr-book-scroller__bar {
   position: relative;
   max-width: 280px;
@@ -92,7 +84,6 @@
   transition: width 0.1s linear;
 }
 
-/* ArticleCard の幅が切り替わるのも1200pxからなので、ここも同じ位置で切り替える */
 @media (min-width: 1200px) {
   .gr-book-card {
     width: 327px;
@@ -102,7 +93,6 @@
     font-size: 14px;
   }
 
-  /* PCは矢印ボタンで送れるので、両端の余白を広めに取る */
   .gr-book-scroller__track {
     padding-left: 64px;
     padding-right: 64px;
@@ -117,7 +107,7 @@
     z-index: 1;
     width: 48px;
     height: 48px;
-    margin-top: -24px; /* 高さの半分ぶん上げて、縦方向の中央に合わせる */
+    margin-top: -24px;
     border-radius: 999px;
     background: #ffffff;
     border: 1px solid var(--gr-gray-200);

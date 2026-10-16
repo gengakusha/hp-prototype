@@ -1,7 +1,3 @@
-/* 実サイトの .g-press-card を参考にした値（スマホ → 1200px 以上で切り替え）。
-   カードの土台（白背景・枠線・影）は、マストバイのカード（BookScroller の .gr-book-card__link）と揃えている。
-   Introの背景は学年ごとの色で薄く塗られているため、カードに不透明な白がないと、
-   タイトルなどの文字がその背景色と混ざって見づらくなっていた。 */
 .gr-article-card__link {
   display: block;
   height: 100%;
@@ -35,8 +31,6 @@
   padding: 0 10px;
 }
 
-/* 学年タグ・カテゴリタグの見た目そのものは、共通の Badge + .gr-tag（global.css）に任せている。
-   ここでは並べ方（横並び・折り返し）だけを決める */
 .gr-article-card__tags {
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +44,6 @@
   line-height: 1;
 }
 
-/* 見出し(h3)の共通サイズより小さい。2列のカードに収めるための例外 */
 .gr-article-card__title {
   margin: 0;
   padding: 0 10px 12px;
