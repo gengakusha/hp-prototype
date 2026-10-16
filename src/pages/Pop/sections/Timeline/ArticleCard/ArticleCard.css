@@ -3,10 +3,11 @@
 }
 
 .gr-article-card__meta {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  gap: 0 16px;
+  gap: 6px 16px;
   margin-bottom: 8px;
   padding: 0 10px;
 }
@@ -16,6 +17,9 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 4px;
+}
+.gr-article-card__tags .gr-tag {
+  white-space: nowrap;
 }
 
 .gr-article-card__date {

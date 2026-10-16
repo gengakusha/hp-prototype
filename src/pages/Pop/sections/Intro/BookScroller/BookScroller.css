@@ -60,18 +60,15 @@
   transition: width 0.1s linear;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .gr-book-card {
-    width: 327px;
-  }
-
-  .gr-book-card__title {
-    font-size: 14px;
+    width: 240px;
   }
 
   .gr-book-scroller__track {
     padding-left: 64px;
     padding-right: 64px;
+    scroll-padding-inline: 64px;
   }
 
   .gr-book-scroller__arrow {
@@ -112,5 +109,15 @@
 
   .gr-book-scroller__bar {
     max-width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gr-book-card {
+    width: 327px;
+  }
+
+  .gr-book-card__title {
+    font-size: 14px;
   }
 }
