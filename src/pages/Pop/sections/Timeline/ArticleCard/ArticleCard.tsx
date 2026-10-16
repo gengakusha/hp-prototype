@@ -1,6 +1,8 @@
 import type { PopArticle } from "../../../../../data/popArticles";
 import { gradeTheme } from "../../../../../data/popIntro";
 import { Badge } from "../../../../../components/ui/Badge/Badge";
+import { LinkCard } from "../../../../../components/ui/LinkCard/LinkCard";
+import { Thumbnail } from "../../../../../components/ui/Thumbnail/Thumbnail";
 import "./ArticleCard.css";
 
 export function ArticleCard({ article }: { article: PopArticle }) {
@@ -8,10 +10,8 @@ export function ArticleCard({ article }: { article: PopArticle }) {
 
   return (
     <li className="gr-article-card">
-      <a href={article.href} className="gr-article-card__link">
-        <div className="gr-article-card__img">
-          <img src={article.image ?? "/no_picture.jpg"} alt="" width={960} height={540} loading="lazy" decoding="async" />
-        </div>
+      <LinkCard href={article.href}>
+        <Thumbnail src={article.image} className="gr-article-card__img" />
         <div className="gr-article-card__meta">
           <ul className="gr-article-card__tags">
             <li>
@@ -32,7 +32,7 @@ export function ArticleCard({ article }: { article: PopArticle }) {
           </time>
         </div>
         <h3 className="gr-article-card__title">{article.title}</h3>
-      </a>
+      </LinkCard>
     </li>
   );
 }

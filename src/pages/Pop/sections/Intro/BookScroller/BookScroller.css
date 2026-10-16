@@ -23,30 +23,6 @@
   width: 168px;
 }
 
-.gr-book-card__link {
-  display: block;
-  height: 100%;
-  border-radius: var(--gr-radius-m);
-  background: #ffffff;
-  border: 1px solid var(--gr-gray-200);
-  box-shadow: var(--gr-shadow-s);
-  overflow: hidden;
-  transition: box-shadow 0.15s ease;
-}
-.gr-book-card__link:hover {
-  box-shadow: var(--gr-shadow-m);
-}
-
-.gr-book-card__thumb {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-.gr-book-card__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .gr-book-card__tag {
   margin: 10px 10px 4px;
 }

@@ -1,25 +1,5 @@
-.gr-article-card__link {
-  display: block;
-  height: 100%;
-  border-radius: var(--gr-radius-m);
-  background: #ffffff;
-  border: 1px solid var(--gr-gray-200);
-  box-shadow: var(--gr-shadow-s);
-  overflow: hidden;
-  transition: box-shadow 0.15s ease;
-}
-.gr-article-card__link:hover {
-  box-shadow: var(--gr-shadow-m);
-}
-
 .gr-article-card__img {
   margin-bottom: 12px;
-}
-.gr-article-card__img img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 
 .gr-article-card__meta {

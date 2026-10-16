@@ -1,0 +1,10 @@
+.gr-thumbnail {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.gr-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

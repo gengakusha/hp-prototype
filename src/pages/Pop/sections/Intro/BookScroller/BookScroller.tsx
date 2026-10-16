@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { gradeTheme, type Grade, type PopBook } from "../../../../../data/popIntro";
+import type { PopArticle } from "../../../../../data/popArticles";
+import { gradeTheme, type Grade } from "../../../../../data/popIntro";
 import { Badge } from "../../../../../components/ui/Badge/Badge";
+import { LinkCard } from "../../../../../components/ui/LinkCard/LinkCard";
+import { Thumbnail } from "../../../../../components/ui/Thumbnail/Thumbnail";
 import "./BookScroller.css";
 
-export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] }) {
+export function BookScroller({ grade, books }: { grade: Grade; books: PopArticle[] }) {
   const tone = gradeTheme[grade].tone;
   const trackRef = useRef<HTMLUListElement>(null);
   const [bar, setBar] = useState({ widthPct: 100, leftPct: 0, atStart: true, atEnd: true });
@@ -28,7 +31,7 @@ export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] 
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector<HTMLElement>(".gr-book-card");
-    const gap = 16;
+    const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
     const step = (card?.offsetWidth ?? 200) + gap;
     el.scrollBy({ left: step * direction, behavior: "smooth" });
   };
@@ -48,15 +51,13 @@ export function BookScroller({ grade, books }: { grade: Grade; books: PopBook[] 
       <ul className="gr-book-scroller__track" ref={trackRef} onScroll={updateBar}>
         {books.map((book) => (
           <li className="gr-book-card" key={book.title}>
-            <a className="gr-book-card__link" href={book.href}>
-              <div className="gr-book-card__thumb">
-                <img src={book.image ?? "/no_picture.jpg"} alt="" width={960} height={540} loading="lazy" decoding="async" />
-              </div>
+            <LinkCard href={book.href}>
+              <Thumbnail src={book.image} />
               <Badge tone={tone} className="gr-book-card__tag gr-tag">
-                {book.category}
+                {book.categories[0]}
               </Badge>
-              <p className="gr-book-card__title">{book.title}</p>
-            </a>
+              <p className="gr-book-card__title">{book.book}</p>
+            </LinkCard>
           </li>
         ))}
       </ul>

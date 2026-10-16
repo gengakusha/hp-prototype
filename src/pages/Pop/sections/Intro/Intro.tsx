@@ -1,26 +1,26 @@
 import { SectionHeading } from "../../../../components/ui/SectionHeading/SectionHeading";
+import { mustBuyArticles, type PopArticle } from "../../../../data/popArticles";
 import { popIntroByGrade, gradeTheme, type Grade, type PopIntroData } from "../../../../data/popIntro";
 import { BookScroller } from "./BookScroller/BookScroller";
 import "./Intro.css";
-import "../../../../styles/global.css";
 
-type IntroProps = Partial<PopIntroData> & { grade: Grade };
+type IntroProps = Partial<PopIntroData> & { grade: Grade; books?: PopArticle[] };
 
 export function Intro({ grade, eyebrow, title, lead, image, books }: IntroProps) {
   const base = popIntroByGrade[grade];
   const popImage = image ?? base.image;
-  const popBooks = books ?? base.books;
+  const popBooks = books ?? mustBuyArticles(grade);
   const backgroundColor = gradeTheme[grade].light;
 
   return (
-    <section className="gr-Intro" style={{ backgroundColor }}>
+    <section className="gr-pop-intro" style={{ backgroundColor }}>
       <div className="gr-container">
         <SectionHeading eyebrow={eyebrow ?? base.eyebrow} title={title ?? base.title} description={lead ?? base.lead} />
       </div>
 
-      <div className="gr-container gr-Intro__pop-image">
+      <div className="gr-container gr-pop-intro__pop-image">
         <a
-          className="gr-Intro__pop-image-link"
+          className="gr-pop-intro__pop-image-link"
           href={popImage.original}
           target="_blank"
           rel="noreferrer"
@@ -39,7 +39,7 @@ export function Intro({ grade, eyebrow, title, lead, image, books }: IntroProps)
         </a>
       </div>
 
-      <div className="gr-container gr-Intro__scroller-area">
+      <div className="gr-container gr-pop-intro__scroller-area">
         <BookScroller grade={grade} books={popBooks} />
       </div>
     </section>
